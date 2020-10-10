@@ -16,7 +16,7 @@ class ViewPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(
             }
 
             1 -> {
-                HotelFragment()
+                HotelFragment.newInstance()
             }
 
             else -> {

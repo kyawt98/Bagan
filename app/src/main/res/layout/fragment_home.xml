@@ -14,7 +14,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:tabMode="fixed"
-
         app:tabGravity="fill"
         tools:layout_editor_absoluteY="359dp">
 

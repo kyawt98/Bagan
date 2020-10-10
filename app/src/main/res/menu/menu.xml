@@ -13,6 +13,6 @@
         android:icon="@drawable/ic_phone" />
 
     <item android:id="@+id/settingFragment"
-        android:title="Setting"
+        android:title="Settings"
         android:icon="@drawable/ic_setting" />
 </menu>
