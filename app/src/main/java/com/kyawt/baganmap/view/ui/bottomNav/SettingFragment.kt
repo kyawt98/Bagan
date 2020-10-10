@@ -1,4 +1,4 @@
-package com.kyawt.baganmap.view.ui
+package com.kyawt.baganmap.view.ui.bottomNav
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

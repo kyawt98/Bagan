@@ -7,17 +7,22 @@
 
     <fragment
         android:id="@+id/contactFragment"
-        android:name="com.kyawt.baganmap.view.ui.ContactFragment"
+        android:name="com.kyawt.baganmap.view.ui.bottomNav.ContactFragment"
         android:label="Contact"
         tools:layout="@layout/fragment_contact" />
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.kyawt.baganmap.view.ui.HomeFragment"
+        android:name="com.kyawt.baganmap.view.ui.bottomNav.HomeFragment"
         android:label="Bagan"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/settingFragment"
-        android:name="com.kyawt.baganmap.view.ui.SettingFragment"
+        android:name="com.kyawt.baganmap.view.ui.bottomNav.SettingFragment"
         android:label="Setting"
         tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.kyawt.baganmap.view.ui.bottomNav.ArticleFragment"
+        android:label="Article"
+        tools:layout="@layout/fragment_article" />
 </navigation>

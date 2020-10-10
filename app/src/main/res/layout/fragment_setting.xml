@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:theme="@style/Theme.Design.NoActionBar"
-    tools:context=".view.ui.SettingFragment">
+    tools:context=".view.ui.bottomNav.SettingFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
