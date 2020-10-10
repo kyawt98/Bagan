@@ -12,7 +12,7 @@ class ViewPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(
     override fun getItem(position: Int): Fragment {
         return when(position){
             0 -> {
-                PagodaFragment()
+                PagodaFragment.newInstance()
             }
 
             1 -> {

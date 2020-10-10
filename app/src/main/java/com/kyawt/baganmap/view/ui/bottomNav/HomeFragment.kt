@@ -33,7 +33,6 @@ class HomeFragment : Fragment() {
 
         val fragmentManager = ViewPagerAdapter(parentFragmentManager)
         viewPager.adapter = fragmentManager
-
         tabBar.setupWithViewPager(viewPager)
     }
 }
