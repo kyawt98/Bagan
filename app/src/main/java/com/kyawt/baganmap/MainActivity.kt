@@ -1,7 +1,9 @@
 package com.kyawt.baganmap
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.widget.Toolbar
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -15,9 +17,12 @@ class MainActivity : AppCompatActivity() {
         setupNavigation()
     }
 
-    private fun setupNavigation(){
+    private fun setupNavigation() {
         navController = findNavController(R.id.container)
         setupActionBarWithNavController(navController)
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            supportActionBar?.hide()
+        }
 
 //        navController.addOnDestinationChangedListener { _, destination, _ ->
 //            if (){
@@ -27,10 +32,11 @@ class MainActivity : AppCompatActivity() {
 //            }
 //        }
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val navController = findNavController(R.id.container)
-        menuInflater.inflate(R.menu.menu,menu)
-        bottomNav.setupWithNavController(menu!!,navController)
+        menuInflater.inflate(R.menu.menu, menu)
+        bottomNav.setupWithNavController(menu!!, navController)
         return true
     }
 

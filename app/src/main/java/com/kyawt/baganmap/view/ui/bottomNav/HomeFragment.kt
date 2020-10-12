@@ -5,12 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import com.kyawt.baganmap.R
 import com.kyawt.baganmap.view.viewpager.ViewPagerAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
-
+    lateinit var supportActionBar : ActionBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,9 +31,27 @@ class HomeFragment : Fragment() {
         setupTabLayout()
     }
 
+
     private fun setupTabLayout(){
         val fragmentManager = ViewPagerAdapter(parentFragmentManager)
         viewPager.adapter = fragmentManager
         tabBar.setupWithViewPager(viewPager)
     }
+
+//    override fun onResume() {
+//        super.onResume()
+//        supportActionBar = (AppCompatActivity)
+//       if (supportActionBar != null){
+//           supportActionBar.hide()
+//       }
+//    }
+//
+//    override fun onStop() {
+//        super.onStop()
+//        if (supportActionBar != null){
+//            supportActionBar.hide()
+//        }
+//    }
+
 }
+

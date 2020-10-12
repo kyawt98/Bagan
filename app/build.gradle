@@ -78,7 +78,4 @@ dependencies {
 
 //    Shimmer effect
     implementation "com.github.skydoves:androidveil:1.0.9"
-
-
-
 }
