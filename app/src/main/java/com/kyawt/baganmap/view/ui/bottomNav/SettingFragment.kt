@@ -14,6 +14,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.kyawt.baganmap.R
+import com.kyawt.baganmap.view.exts.gone
+import com.kyawt.baganmap.view.exts.visible
 import kotlinx.android.synthetic.main.fragment_setting.*
 import java.util.*
 import kotlin.system.exitProcess
@@ -93,6 +95,7 @@ class SettingFragment : Fragment() {
         val i = requireActivity().baseContext.packageManager
             .getLaunchIntentForPackage(requireActivity().baseContext.packageName)
         i!!.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        LoadingBar.visible()
         startActivity(i)
     }
 
