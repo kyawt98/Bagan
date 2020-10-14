@@ -42,6 +42,10 @@ class SettingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupChangeLanguage()
+    }
+
+    private fun setupChangeLanguage() {
         currentLanguage = currentLang.toString()
         val list = ArrayList<String>()
         list.add("Select Language")
@@ -64,6 +68,7 @@ class SettingFragment : Fragment() {
                     2 -> setLocale("mm")
                 }
             }
+
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
     }
