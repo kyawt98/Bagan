@@ -76,18 +76,18 @@ class SettingFragment : Fragment() {
             val conf = res.configuration
             conf.locale = locale
             res.updateConfiguration(conf, dm)
-            restartSelf()
         } else {
             Toast.makeText(
                 context, "Language, , already, , selected)!", Toast.LENGTH_LONG
             ).show();
         }
+        restartSelf()
     }
 
     private fun restartSelf() {
         val am =
             requireActivity().getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        am[AlarmManager.RTC_WAKEUP, Calendar.getInstance().timeInMillis + 1000] =
+        am[AlarmManager.RTC_WAKEUP, Calendar.getInstance().timeInMillis + 500] =
             PendingIntent.getActivity(
                 activity, 0, requireActivity().intent, PendingIntent.FLAG_ONE_SHOT
                         or PendingIntent.FLAG_CANCEL_CURRENT
