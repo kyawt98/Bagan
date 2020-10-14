@@ -71,7 +71,7 @@
                 android:popupElevation="0dp"
                 android:pointerIcon="arrow"
                 android:popupTheme="@android:style/ThemeOverlay.Material.Light"
-                android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+                android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar.MinWidth"
                 android:popupBackground="@color/colorPrimaryDark"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -86,7 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:cardBackgroundColor="@android:color/white"
-        app:cardPreventCornerOverlap="false"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardLanguage">
 
@@ -111,8 +111,8 @@
         android:id="@+id/cardAbout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
         app:cardBackgroundColor="@android:color/white"
-        app:cardPreventCornerOverlap="false"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardPrivacy">
 
@@ -137,8 +137,8 @@
         android:id="@+id/cardVersion"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
         app:cardBackgroundColor="@android:color/white"
-        app:cardPreventCornerOverlap="true"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardAbout">
 
