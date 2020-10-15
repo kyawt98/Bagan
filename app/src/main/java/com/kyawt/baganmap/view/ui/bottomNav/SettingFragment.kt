@@ -53,8 +53,17 @@ class SettingFragment : Fragment() {
                 navOptions()
             )
         }
+        cardPrivacy.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_settingFragment_to_privacyFragment,
+                null,
+                navOptions()
+            )
+        }
 
     }
+
+
 
     private fun navOptions() = NavOptions.Builder()
         .setEnterAnim(R.anim.nav_default_enter_anim)
