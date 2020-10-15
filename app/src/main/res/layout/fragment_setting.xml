@@ -12,9 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:cardBackgroundColor="@color/colorPrimary"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -25,13 +25,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/settings"
+                android:textColor="@color/colorAccent"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="@color/colorAccent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -66,13 +66,13 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
-                android:textSize="12sp"
-                android:textAlignment="textEnd"
-                android:popupElevation="0dp"
                 android:pointerIcon="arrow"
-                android:popupTheme="@android:style/ThemeOverlay.Material.Light"
-                android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar.MinWidth"
                 android:popupBackground="@color/colorPrimaryDark"
+                android:popupElevation="0dp"
+                android:popupTheme="@android:style/ThemeOverlay.Material.Light"
+                android:textAlignment="textEnd"
+                android:textSize="12sp"
+                android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar.MinWidth"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -85,8 +85,8 @@
         android:id="@+id/cardPrivacy"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:cardBackgroundColor="@android:color/white"
         android:foreground="?attr/selectableItemBackgroundBorderless"
+        app:cardBackgroundColor="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardLanguage">
 
@@ -163,9 +163,9 @@
         android:id="@+id/LoadingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:visibility="gone"/>
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

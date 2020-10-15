@@ -10,6 +10,7 @@
         android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        app:cardBackgroundColor="@color/colorPrimary"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -26,14 +27,17 @@
                 android:padding="16dp"
                 android:src="@drawable/ic_back"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@android:color/white" />
 
             <TextView
-                android:id="@+id/txtTitle"
+                android:id="@+id/txtName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bagan"
-                android:textSize="14sp"
+                android:text="Hotel Name"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -50,5 +54,6 @@
         app:layout_constraintTop_toBottomOf="@id/appBar"
         app:veilLayout_shimmerEnable="true"
         app:veilLayout_veiled="true">
+
     </com.skydoves.androidveil.VeilLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

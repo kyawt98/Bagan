@@ -28,9 +28,13 @@ class AboutFragment : Fragment() {
         onBackPressed()
     }
 
-    private fun onBackPressed(){
+    private fun onBackPressed() {
         icBack.setOnClickListener {
-            findNavController().navigate(R.id.action_aboutFragment_to_settingFragment,null,navOptions())
+            findNavController().navigate(
+                R.id.action_aboutFragment_to_settingFragment,
+                null,
+                navOptions()
+            )
         }
     }
 

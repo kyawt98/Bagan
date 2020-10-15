@@ -45,12 +45,17 @@ class SettingFragment : Fragment() {
         onPressedCards()
     }
 
-    private fun onPressedCards(){
+    private fun onPressedCards() {
         cardAbout.setOnClickListener {
-            findNavController().navigate(R.id.action_settingFragment_to_aboutFragment,null, navOptions())
+            findNavController().navigate(
+                R.id.action_settingFragment_to_aboutFragment,
+                null,
+                navOptions()
+            )
         }
 
     }
+
     private fun navOptions() = NavOptions.Builder()
         .setEnterAnim(R.anim.nav_default_enter_anim)
         .setExitAnim(R.anim.nav_default_exit_anim)
