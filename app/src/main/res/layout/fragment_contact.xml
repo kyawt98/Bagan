@@ -77,7 +77,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textAllCaps="true"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="32dp"
                 android:textColor="@android:color/black"/>
 
             <ImageView
@@ -91,7 +91,7 @@
                 android:layout_marginLeft="32dp"
                 app:tint="@color/colorAccent"
                 android:elevation="8dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/icon_background"/>
 
             <TextView

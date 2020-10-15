@@ -63,8 +63,6 @@ class SettingFragment : Fragment() {
 
     }
 
-
-
     private fun navOptions() = NavOptions.Builder()
         .setEnterAnim(R.anim.nav_default_enter_anim)
         .setExitAnim(R.anim.nav_default_exit_anim)
