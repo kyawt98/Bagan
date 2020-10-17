@@ -89,21 +89,22 @@ class ContactFragment : Fragment(), OnMapReadyCallback {
             mMap = googleMap
         }
 
-        //These coordinates represent the latitude and longitude of the Googleplex.
-        val latitude = 37.422160
-        val longitude = -122.084270
+        val latitude = 16.8554454
+        val longitude = 96.1726662
         val zoomLevel = 15f
 
         val homeLatLng = LatLng(latitude, longitude)
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(homeLatLng, zoomLevel))
-        mMap.addMarker(MarkerOptions().position(homeLatLng))
+        mMap.addMarker(MarkerOptions().position(homeLatLng) .title("CodeX Myanmar"))
+        mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
         setMapLongClick(mMap)
         setPoiClick(mMap)
         enableMyLocation()
     }
 
     private fun setMapLongClick(map: GoogleMap) {
-        map.setOnMapLongClickListener { latLng ->
+        mMap = map
+        mMap.setOnMapLongClickListener { latLng ->
             // A Snippet is Additional text that's displayed below the title.
             val snippet = String.format(
                 Locale.getDefault(),
@@ -111,18 +112,20 @@ class ContactFragment : Fragment(), OnMapReadyCallback {
                 latLng.latitude,
                 latLng.longitude
             )
-            map.addMarker(
+            mMap.addMarker(
                 MarkerOptions()
                     .position(latLng)
                     .snippet(snippet)
+                    .title("CodeX Myanmar")
 
             )
         }
     }
 
     private fun setPoiClick(map: GoogleMap) {
-        map.setOnPoiClickListener { poi ->
-            val poiMarker = map.addMarker(
+        mMap = map
+        mMap.setOnPoiClickListener { poi ->
+            val poiMarker = mMap.addMarker(
                 MarkerOptions()
                     .position(poi.latLng)
                     .title(poi.name)

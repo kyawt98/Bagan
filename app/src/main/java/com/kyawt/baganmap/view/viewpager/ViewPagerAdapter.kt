@@ -13,33 +13,25 @@ class ViewPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(
     override fun getItem(position: Int): Fragment {
         return when(position){
             0 -> {
-                PagodaFragment.newInstance()
+                PagodaFragment()
             }
 
             1 -> {
                 HotelFragment()
             }
-
-            2 -> {
-                PromotionFragment()
-            }
-
-            else -> {
-                return AdvertisingFragment()
+            else ->{
+                HotelFragment()
             }
         }
     }
 
-    override fun getCount(): Int = 4
+    override fun getCount(): Int = 2
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when(position){
-            0 -> "Pagoda"
-            1 -> "Hotel"
-            2 -> "Promotion"
-            else ->{
-                return "Advertising"
-            }
+            0 -> "Pagodas"
+            1 -> "Hotels"
+           else-> "Hotels"
         }
     }
 }
