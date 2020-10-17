@@ -38,20 +38,5 @@ class HomeFragment : Fragment() {
         tabBar.setupWithViewPager(viewPager)
     }
 
-//    override fun onResume() {
-//        super.onResume()
-//        supportActionBar = (AppCompatActivity)
-//       if (supportActionBar != null){
-//           supportActionBar.hide()
-//       }
-//    }
-//
-//    override fun onStop() {
-//        super.onStop()
-//        if (supportActionBar != null){
-//            supportActionBar.hide()
-//        }
-//    }
-
 }
 

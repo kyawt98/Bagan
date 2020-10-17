@@ -7,6 +7,8 @@ import android.widget.Toolbar
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.kyawt.baganmap.view.exts.gone
+import com.kyawt.baganmap.view.exts.visible
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -22,15 +24,13 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController)
         navController.addOnDestinationChangedListener { _, destination, _ ->
             supportActionBar?.hide()
-        }
 
-//        navController.addOnDestinationChangedListener { _, destination, _ ->
-//            if (){
-//                bottomNav.visibility = View.GONE
-//            }else{
-//                bottomNav.visibility = View.VISIBLE
-//            }
-//        }
+            if (destination.id == R.id.aboutFragment || destination.id == R.id.privacyFragment) {
+                bottomNav.gone()
+            } else {
+                bottomNav.visible()
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

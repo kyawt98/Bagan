@@ -12,13 +12,12 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.kyawt.baganmap.R
-import com.kyawt.baganmap.view.exts.gone
 import com.kyawt.baganmap.view.exts.visible
 import kotlinx.android.synthetic.main.fragment_setting.*
 import java.util.*
-import kotlin.system.exitProcess
 
 
 class SettingFragment : Fragment() {
@@ -42,6 +41,36 @@ class SettingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupChangeLanguage()
+        onPressedCards()
+    }
+
+    private fun onPressedCards() {
+        cardAbout.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_settingFragment_to_aboutFragment,
+                null,
+                navOptions()
+            )
+        }
+        cardPrivacy.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_settingFragment_to_privacyFragment,
+                null,
+                navOptions()
+            )
+        }
+
+    }
+
+    private fun navOptions() = NavOptions.Builder()
+        .setEnterAnim(R.anim.nav_default_enter_anim)
+        .setExitAnim(R.anim.nav_default_exit_anim)
+        .setPopEnterAnim(R.anim.nav_default_pop_enter_anim)
+        .setPopExitAnim(R.anim.nav_default_pop_exit_anim)
+        .build()
+
+    private fun setupChangeLanguage() {
         currentLanguage = currentLang.toString()
         val list = ArrayList<String>()
         list.add("Select Language")
@@ -64,6 +93,7 @@ class SettingFragment : Fragment() {
                     2 -> setLocale("mm")
                 }
             }
+
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
     }
@@ -76,18 +106,18 @@ class SettingFragment : Fragment() {
             val conf = res.configuration
             conf.locale = locale
             res.updateConfiguration(conf, dm)
-            restartSelf()
         } else {
             Toast.makeText(
                 context, "Language, , already, , selected)!", Toast.LENGTH_LONG
             ).show();
         }
+        restartSelf()
     }
 
     private fun restartSelf() {
         val am =
             requireActivity().getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        am[AlarmManager.RTC_WAKEUP, Calendar.getInstance().timeInMillis + 1000] =
+        am[AlarmManager.RTC_WAKEUP, Calendar.getInstance().timeInMillis + 500] =
             PendingIntent.getActivity(
                 activity, 0, requireActivity().intent, PendingIntent.FLAG_ONE_SHOT
                         or PendingIntent.FLAG_CANCEL_CURRENT
