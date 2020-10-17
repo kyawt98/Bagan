@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--  bottomNav  -->
+    <string name="hello_blank_fragment">ကျော့ကျော့စံ</string>
+    <string name="app_name">ပုဂံ</string>
+    <string name="pagoda">ဘုရား</string>
+    <string name="home">မူလ</string>
+    <string name="article">သတင်းများ</string>
+    <string name="contact">ဆက်သွယ်ရန်</string>
+    <string name="settings">စက်တင်</string>
+    <string name="language">ဘာသာစကား</string>
+    <string name="privacy_policy">ကိုယ်ရေးအချက်အလက် မူ၀ါဒ</string>
+    <string name="about_us">အကြောင်းအရာ</string>
+    <string name="v_1_0">ဗားရှင်း ၁.၀</string>
+
+<!-- Hotel   -->
+    <string name="total_found">စုစုပေါင်း ရလဒ်:</string>
+
+</resources>
