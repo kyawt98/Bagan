@@ -42,13 +42,7 @@ class PagodaFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_pagoda, container, false)
 
-        var suggestion = arrayOf("Shwe Si Gon", "ArNandar")
 
-        var adapter = ArrayAdapter (context!!, android.R.layout.select_dialog_item, suggestion)
-
-        txt1.threshold = 0
-        txt1.setAdapter(adapter)
-        txt1.setTextColor(Color.RED)
 
     }
 
