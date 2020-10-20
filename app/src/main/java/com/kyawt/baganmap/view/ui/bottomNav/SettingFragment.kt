@@ -4,6 +4,7 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
@@ -41,8 +43,13 @@ class SettingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        changeThemeAction()
         setupChangeLanguage()
         onPressedCards()
+    }
+
+    private fun changeThemeAction() {
+
     }
 
     private fun onPressedCards() {
