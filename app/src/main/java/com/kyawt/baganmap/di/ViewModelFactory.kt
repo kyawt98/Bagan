@@ -1,4 +1,4 @@
-package com.codex.luckyyadanar.di
+package com.kyawt.baganmap.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
