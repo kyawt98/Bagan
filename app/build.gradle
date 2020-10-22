@@ -88,20 +88,19 @@ dependencies {
 //    Shimmer effect
     implementation "com.github.skydoves:androidveil:1.0.9"
 
-    // Dagger
-    def  DAGGER = "2.28"
-    implementation "com.google.dagger:dagger:$DAGGER"
-    implementation "com.google.dagger:dagger-android:$DAGGER"
-    implementation "com.google.dagger:dagger-android-support:$DAGGER"
-    kapt "com.google.dagger:dagger-android-processor:$DAGGER"
-    kapt "com.google.dagger:dagger-compiler:$DAGGER"
-
-    // Dagger-Hilt
-    def hilt = "2.28-alpha"
-    def hilt_viewmodel = "1.0.0-alpha01"
-    implementation "com.google.dagger:hilt-android:$hilt"
-    implementation "com.google.dagger:hilt-android-compiler:$hilt"
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_viewmodel"
-    implementation "androidx.hilt:hilt-compiler:$hilt_viewmodel"
+//    // Dagger
+//    def  DAGGER = "2.28"
+//    implementation "com.google.dagger:dagger:$DAGGER"
+//    implementation "com.google.dagger:dagger-android:$DAGGER"
+//    implementation "com.google.dagger:dagger-android-support:$DAGGER"
+//    kapt "com.google.dagger:dagger-android-processor:$DAGGER"
+//    kapt "com.google.dagger:dagger-compiler:$DAGGER"
+//
+////     Dagger-Hilt
+//    def hilt = "2.28-alpha"
+//    implementation "com.google.dagger:hilt-android:$hilt"
+//    implementation "com.google.dagger:hilt-android-compiler:$hilt"
+//    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02"
+//    implementation "androidx.hilt:hilt-compiler:1.0.0-alpha02"
 
 }
