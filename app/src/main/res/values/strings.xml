@@ -19,4 +19,6 @@
     <string name="price_for_1_night">Price for 1 night</string>
     <string name="price_for_2_person">Price for 2 person</string>
     <string name="facilities">Facilities</string>
+    <string name="pagodas">Pagodas</string>
+    <string name="hotels">Hotels</string>
 </resources>

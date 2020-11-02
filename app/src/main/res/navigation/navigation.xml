@@ -14,7 +14,14 @@
         android:id="@+id/homeFragment"
         android:name="com.kyawt.baganmap.view.ui.bottomNav.HomeFragment"
         android:label="Bagan"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_pagodaFragment"
+            app:destination="@id/pagodaFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_hotelFragment"
+            app:destination="@id/hotelFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.kyawt.baganmap.view.ui.bottomNav.SettingFragment"
@@ -50,5 +57,22 @@
         <action
             android:id="@+id/action_privacyFragment_to_settingFragment"
             app:destination="@id/settingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pagodaFragment"
+        android:name="com.kyawt.baganmap.view.ui.home.pagoda.PagodaFragment"
+        android:label="PagodaFragment" >
+        <action
+            android:id="@+id/action_pagodaFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hotelFragment"
+        android:name="com.kyawt.baganmap.view.ui.home.hotel.HotelFragment"
+        android:label="fragment_hotel"
+        tools:layout="@layout/fragment_hotel" >
+        <action
+            android:id="@+id/action_hotelFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             supportActionBar?.hide()
 
-            if (destination.id == R.id.aboutFragment || destination.id == R.id.privacyFragment) {
+            if (destination.id == R.id.aboutFragment || destination.id == R.id.privacyFragment || destination.id == R.id.pagodaFragment || destination.id == R.id.hotelFragment) {
                 bottomNav.gone()
             } else {
                 bottomNav.visible()
