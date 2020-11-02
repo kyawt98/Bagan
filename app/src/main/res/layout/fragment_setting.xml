@@ -36,33 +36,43 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardTheme"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        app:cardBackgroundColor="@android:color/white"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardAppBar">
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/cardTheme"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:foreground="?attr/selectableItemBackgroundBorderless"-->
+<!--        app:cardBackgroundColor="@android:color/white"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/cardAppBar">-->
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:id="@+id/themLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
 
-            <Switch
-                android:id="@+id/switchTheme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Light Mode"
-                android:checked="false"
-                android:layout_marginLeft="24dp"
-                android:textColor="@android:color/black"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+<!--&lt;!&ndash;            <Switch&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/switchTheme"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="Light Mode"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:checked="false"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginLeft="24dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="@android:color/black"&ndash;&gt;-->
+<!--&lt;!&ndash;                app:layout_constraintLeft_toLeftOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                app:layout_constraintTop_toTopOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                app:layout_constraintBottom_toBottomOf="parent"/>&ndash;&gt;-->
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+<!--            <Button-->
+<!--                android:id="@+id/btnTheme"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Dark Mode"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintRight_toRightOf="parent"/>-->
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--    </androidx.cardview.widget.CardView>-->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardLanguage"
@@ -71,7 +81,7 @@
         app:cardBackgroundColor="@android:color/white"
         app:cardPreventCornerOverlap="false"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardTheme">
+        app:layout_constraintTop_toBottomOf="@id/cardAppBar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
