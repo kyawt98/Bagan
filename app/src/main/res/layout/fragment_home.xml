@@ -62,7 +62,6 @@
                 android:text="@string/pagodas"
                 android:letterSpacing="0.1"
                 android:textSize="24sp"
-                android:fontFamily="@font/walkwayblack"
                 android:textColor="@color/colorAccent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -99,7 +98,6 @@
                 android:text="@string/hotels"
                 android:letterSpacing="0.1"
                 android:textSize="24sp"
-                android:fontFamily="@font/walkwayblack"
                 android:textColor="@color/colorAccent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
