@@ -18,5 +18,16 @@
 
     <!-- Hotel   -->
     <string name="total_found">စုစုပေါင်း ရလဒ်:</string>
+    <string name="includes_taxes_and_changes">အခွန်ခနှင့်၀န်ဆောင်ခပါပြီး</string>
+    <string name="mmk">ကျပ်</string>
+    <string name="price_for_1_night">၁ညတည်းခိုခ</string>
+    <string name="price_for_2_person">လူနှစ်ယောက်စာ</string>
+    <string name="facilities">ပံ့ပိုးပေးမှုများ</string>
+    <string name="pagodas">ဘုရားစေတီများ</string>
+    <string name="hotels">ဟိုတယ်များ</string>
+
+
+
+
 
 </resources>

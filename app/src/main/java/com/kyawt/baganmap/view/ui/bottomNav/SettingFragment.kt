@@ -1,6 +1,8 @@
 package com.kyawt.baganmap.view.ui.bottomNav
 
+import android.app.ActionBar
 import android.app.AlarmManager
+import android.app.AlertDialog
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
@@ -9,18 +11,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
+import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.*
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.kyawt.baganmap.R
+import com.kyawt.baganmap.utils.MyPreferences
 import com.kyawt.baganmap.view.exts.visible
 import kotlinx.android.synthetic.main.fragment_setting.*
+import kotlinx.android.synthetic.main.fragment_setting.view.*
 import java.util.*
-
 
 class SettingFragment : Fragment() {
     lateinit var locale: Locale
@@ -43,14 +51,27 @@ class SettingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        changeThemeAction()
         setupChangeLanguage()
         onPressedCards()
+//        checkTheme()
+//        changeThemeAction()
     }
 
-    private fun changeThemeAction() {
-
-    }
+//    private fun changeThemeAction() {
+//
+//            val btnTheme = Button(context).apply {
+//                text = if (getDefaultNightMode() != MODE_NIGHT_YES) "Go Dark " else "Go Light"
+//                layoutParams = ActionBar.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
+//            }
+//
+//            (themLayout.decorView as ViewGroup).addView(btnTheme) // or `yourContainer.addView(darkButton)`
+//
+//            btnTheme.setOnClickListener {
+//                AppCompatDelegate.setDefaultNightMode(
+//                    if (getDefaultNightMode() != MODE_NIGHT_YES) MODE_NIGHT_YES else MODE_NIGHT_NO
+//                )
+//            }
+//    }
 
     private fun onPressedCards() {
         cardAbout.setOnClickListener {
@@ -83,7 +104,7 @@ class SettingFragment : Fragment() {
         list.add("Select Language")
         list.add("English")
         list.add("Myanmar")
-        val adapter = ArrayAdapter(context!!, R.layout.support_simple_spinner_dropdown_item, list)
+        val adapter = ArrayAdapter(requireContext(), R.layout.support_simple_spinner_dropdown_item, list)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerLanguage.adapter = adapter
         spinnerLanguage.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -118,10 +139,13 @@ class SettingFragment : Fragment() {
                 context, "Language, , already, , selected)!", Toast.LENGTH_LONG
             ).show();
         }
+
         restartSelf()
     }
 
     private fun restartSelf() {
+        LoadingBar.visible()
+
         val am =
             requireActivity().getSystemService(Context.ALARM_SERVICE) as AlarmManager
         am[AlarmManager.RTC_WAKEUP, Calendar.getInstance().timeInMillis + 500] =
@@ -132,7 +156,6 @@ class SettingFragment : Fragment() {
         val i = requireActivity().baseContext.packageManager
             .getLaunchIntentForPackage(requireActivity().baseContext.packageName)
         i!!.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        LoadingBar.visible()
         startActivity(i)
     }
 

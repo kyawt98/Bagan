@@ -5,7 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import com.kyawt.baganmap.R
+import kotlinx.android.synthetic.main.fragment_about.*
+
 class HotelFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,10 +26,28 @@ class HotelFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        onBackPressed()
     }
 
     private fun setupRecycler(){
 
     }
+
+    private fun onBackPressed() {
+        icBack.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_hotelFragment_to_homeFragment,
+                null,
+                navOptions()
+            )
+        }
+    }
+
+    private fun navOptions() = NavOptions.Builder()
+        .setEnterAnim(R.anim.nav_default_enter_anim)
+        .setExitAnim(R.anim.nav_default_exit_anim)
+        .setPopEnterAnim(R.anim.nav_default_pop_enter_anim)
+        .setPopExitAnim(R.anim.nav_default_pop_exit_anim)
+        .build()
 
 }

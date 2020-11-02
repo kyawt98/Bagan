@@ -14,4 +14,11 @@
     <string name="total_found">total found:</string>
     <string name="contact_us">Contact Us</string>
     <string name="dark_mode">Dark mode</string>
+    <string name="includes_taxes_and_changes">includes taxes and changes</string>
+    <string name="mmk">MMK</string>
+    <string name="price_for_1_night">Price for 1 night</string>
+    <string name="price_for_2_person">Price for 2 person</string>
+    <string name="facilities">Facilities</string>
+    <string name="pagodas">Pagodas</string>
+    <string name="hotels">Hotels</string>
 </resources>
