@@ -16,6 +16,25 @@
             android:layout_width="match_parent"
             android:layout_height="280dp">
 
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="104dp"
+                android:layout_height="21dp"
+                android:hint="Description"
+                tools:layout_editor_absoluteX="162dp"
+                tools:layout_editor_absoluteY="180dp" />
+
+            <TextView
+                android:id="@+id/imgdate2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="244dp"
+                android:text="Time"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <ImageView
                 android:id="@+id/imgarticle1"
                 android:layout_width="100dp"
@@ -76,14 +95,38 @@
                 android:id="@+id/imgdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Date and Time"
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="210dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:text="Date"
                 android:textStyle="bold"
-                tools:layout_editor_absoluteX="27dp"
-                tools:layout_editor_absoluteY="115dp" />
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editTextDate"
+                android:layout_width="106dp"
+                android:layout_height="24dp"
+                android:ems="10"
+                android:inputType="date"
+                tools:layout_editor_absoluteX="163dp"
+                tools:layout_editor_absoluteY="210dp" />
+
+            <EditText
+                android:id="@+id/editTextTime"
+                android:layout_width="107dp"
+                android:layout_height="25dp"
+                android:ems="10"
+                android:inputType="time"
+                tools:layout_editor_absoluteX="162dp"
+                tools:layout_editor_absoluteY="243dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="101dp"
+                android:layout_height="21dp"
+                android:hint="Name"
+                tools:layout_editor_absoluteX="164dp"
+                tools:layout_editor_absoluteY="147dp" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
