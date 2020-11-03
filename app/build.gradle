@@ -90,6 +90,8 @@ dependencies {
 // Theme
     implementation "androidx.preference:preference-ktx:1.1.1"
 
+//    Image slider
+    implementation 'io.github.ivanespitiac:imageslider:1.0.3'
 //    // Dagger
 //    def  DAGGER = "2.28"
 //    implementation "com.google.dagger:dagger:$DAGGER"

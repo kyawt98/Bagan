@@ -1,5 +1,4 @@
 package com.kyawt.baganmap.view.ui.bottomNav
-
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
@@ -23,15 +22,12 @@ import com.kyawt.baganmap.R
 import kotlinx.android.synthetic.main.fragment_contact.*
 import java.util.*
 
-
 class ContactFragment : Fragment(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private val REQUEST_LOCATION_PERMISSION = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

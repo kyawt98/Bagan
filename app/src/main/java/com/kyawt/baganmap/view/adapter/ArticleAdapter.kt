@@ -10,9 +10,6 @@ import com.kyawt.baganmap.view.exts.bindView
 
 import com.kyawt.baganmap.view.viewholder.ArticleViewHolder
 
-
-
-
 class ArticleAdapter (): RecyclerView.Adapter<ArticleViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
         return ArticleViewHolder(parent.context.bindView(R.layout.item_article,parent))

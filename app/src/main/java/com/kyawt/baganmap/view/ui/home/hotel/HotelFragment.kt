@@ -31,6 +31,7 @@ class HotelFragment : Fragment() {
 
     private fun setupRecycler(){
 
+
     }
 
     private fun onBackPressed() {
