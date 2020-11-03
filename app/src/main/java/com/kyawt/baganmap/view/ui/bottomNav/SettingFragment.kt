@@ -13,10 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.*
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -55,6 +52,7 @@ class SettingFragment : Fragment() {
         onPressedCards()
 //        checkTheme()
 //        changeThemeAction()
+
     }
 
 //    private fun changeThemeAction() {
@@ -134,13 +132,14 @@ class SettingFragment : Fragment() {
             val conf = res.configuration
             conf.locale = locale
             res.updateConfiguration(conf, dm)
+            restartSelf()
+
         } else {
             Toast.makeText(
                 context, "Language, , already, , selected)!", Toast.LENGTH_LONG
             ).show();
         }
 
-        restartSelf()
     }
 
     private fun restartSelf() {
