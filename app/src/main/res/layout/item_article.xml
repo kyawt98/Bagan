@@ -16,13 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="280dp">
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="104dp"
-                android:layout_height="21dp"
-                android:hint="Description"
-                tools:layout_editor_absoluteX="162dp"
-                tools:layout_editor_absoluteY="180dp" />
 
             <TextView
                 android:id="@+id/imgdate2"
@@ -102,31 +95,43 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/txtname"
+                android:layout_width="71dp"
+                android:layout_height="20dp"
+                android:hint="Name"
+                tools:layout_editor_absoluteX="153dp"
+                tools:layout_editor_absoluteY="150dp"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/txtdescription"
+                android:layout_width="71dp"
+                android:layout_height="20dp"
+                android:hint="Description"
+                tools:layout_editor_absoluteX="153dp"
+                tools:layout_editor_absoluteY="180dp"
+                tools:ignore="MissingConstraints" />
+
             <EditText
                 android:id="@+id/editTextDate"
-                android:layout_width="106dp"
+                android:layout_width="74dp"
                 android:layout_height="24dp"
                 android:ems="10"
                 android:inputType="date"
-                tools:layout_editor_absoluteX="163dp"
-                tools:layout_editor_absoluteY="210dp" />
+                tools:layout_editor_absoluteX="149dp"
+                tools:layout_editor_absoluteY="208dp"
+                tools:ignore="MissingConstraints" />
 
             <EditText
                 android:id="@+id/editTextTime"
-                android:layout_width="107dp"
-                android:layout_height="25dp"
+                android:layout_width="71dp"
+                android:layout_height="29dp"
                 android:ems="10"
                 android:inputType="time"
-                tools:layout_editor_absoluteX="162dp"
-                tools:layout_editor_absoluteY="243dp" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="101dp"
-                android:layout_height="21dp"
-                android:hint="Name"
-                tools:layout_editor_absoluteX="164dp"
-                tools:layout_editor_absoluteY="147dp" />
+                tools:layout_editor_absoluteX="149dp"
+                tools:layout_editor_absoluteY="235dp"
+                tools:ignore="MissingConstraints" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

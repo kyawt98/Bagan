@@ -1,4 +1,4 @@
-package com.kyawt.baganmap.view.ui.home.article
+package com.kyawt.baganmap.view.ui.bottomNav
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.kyawt.baganmap.R
 
-class ArticleFragment : Fragment(){
+class ArticleFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,10 +23,12 @@ class ArticleFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
     }
 
     private fun setupRecycler(){
 
     }
+
 
 }

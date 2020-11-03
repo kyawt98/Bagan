@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.kyawt.baganmap.R
 import com.kyawt.baganmap.view.exts.bindView
-import com.kyawt.baganmap.view.ui.bottomNav.ArticleFragment
+
 import com.kyawt.baganmap.view.viewholder.ArticleViewHolder
 
 

@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ui.home.article.ArticleFragment">
+    tools:context=".view.ui.bottomNav.ArticleFragment">
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/appBar"
+        android:id="@+id/cardArticle"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:cardBackgroundColor="@color/colorPrimary"
@@ -51,7 +51,7 @@
         android:id="@+id/recyclerarticle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/appBar"
+        app:layout_constraintTop_toBottomOf="@id/cardArticle"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="8dp"/>

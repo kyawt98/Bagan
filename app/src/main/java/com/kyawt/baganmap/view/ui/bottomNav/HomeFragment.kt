@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.kyawt.baganmap.R
+import kotlinx.android.synthetic.main.fragment_article.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
@@ -46,6 +47,8 @@ class HomeFragment : Fragment() {
                 navOptions()
             )
         }
+
+
     }
 
     private fun navOptions() = NavOptions.Builder()
