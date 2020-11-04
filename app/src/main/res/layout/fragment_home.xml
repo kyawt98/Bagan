@@ -19,7 +19,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/backgroundimg">
+            android:background="@color/darkColor">
 
             <ImageView
                 android:id="@+id/icLogo"
@@ -42,6 +42,7 @@
         android:overScrollMode="always"
         android:animateLayoutChanges="true"
         android:fadeScrollbars="true"
+        android:background="@color/darkColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -54,8 +55,12 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardHighLight"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="150dp"
                 app:cardElevation="8dp"
+                app:cardCornerRadius="16dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:cardBackgroundColor="#D548EDE5">
 
@@ -88,75 +93,30 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardPagoda"
+                android:id="@+id/cardTab"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                app:cardBackgroundColor="#E2EC986A"
+                android:layout_height="520dp"
+                app:cardBackgroundColor="@color/darkColor"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cardHighLight">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/imgPagodaBackground"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tab_layout"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:alpha="0.4"
-                        android:foreground="?attr/selectableItemBackgroundBorderless"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/pagoda" />
-
-                    <TextView
-                        android:id="@+id/txtPagoda"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:letterSpacing="0.1"
-                        android:text="@string/pagodas"
-                        android:textColor="#ABFFFFFF"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardHotel"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                app:cardBackgroundColor="#D065A8DC"
-                app:cardElevation="8dp"
-                app:layout_constraintTop_toBottomOf="@id/cardPagoda">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/imgHotelBackground"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="@color/darkColor"
+                        app:tabMaxWidth="0dp"
+                        app:tabTextAppearance="?android:attr/textAppearanceMedium"
+                        app:textAllCaps="false" />
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/tabs_viewpager"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:alpha="0.4"
-                        android:foreground="?attr/selectableItemBackgroundBorderless"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/hotel" />
-
-                    <TextView
-                        android:id="@+id/txtHotel"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:letterSpacing="0.1"
-                        android:text="@string/hotels"
-                        android:textColor="#ABFFFFFF"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        android:layout_height="0dp"
+                        android:layout_weight="1"/>
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

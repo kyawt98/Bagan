@@ -34,7 +34,7 @@ class HotelFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        onBackPressed()
+//        onBackPressed()
         setupToolbar()
 
     }
@@ -47,7 +47,6 @@ class HotelFragment : Fragment() {
 
     @SuppressLint("InflateParams")
     private fun setupToolbar() {
-        toolBar.toolbar?.setNavigationIcon(R.drawable.ic_back)
         toolBar.jellyListener = object : JellyListener() {
             override fun onCancelIconClicked() {
                 if (TextUtils.isEmpty(etSearch?.text)) {
@@ -57,7 +56,7 @@ class HotelFragment : Fragment() {
                 }
             }
         }
-        toolBar.toolbar?.setPadding(0, getStatusBarHeight(), 0, 0)
+        toolBar.toolbar?.setPadding(0, getStatusBarHeight(), 0, 16)
         val etd = LayoutInflater.from(context).inflate(R.layout.edit_text, null) as AppCompatEditText
         etd.setBackgroundResource(R.color.colorTransparent)
         toolBar.contentView = etd
@@ -86,18 +85,18 @@ class HotelFragment : Fragment() {
         }
     }
 
-    private fun onBackPressed() {
-        icBack.setOnClickListener {
-            findNavController().navigate(R.id.action_hotelFragment_to_homeFragment, null,navOptions())
-        }
-    }
-
-    private fun navOptions() = NavOptions.Builder()
-        .setEnterAnim(R.anim.nav_default_enter_anim)
-        .setExitAnim(R.anim.nav_default_exit_anim)
-        .setPopEnterAnim(R.anim.nav_default_pop_enter_anim)
-        .setPopExitAnim(R.anim.nav_default_pop_exit_anim)
-        .build()
+//    private fun onBackPressed() {
+//        icBack.setOnClickListener {
+//            findNavController().navigate(R.id.action_hotelFragment_to_homeFragment, null,navOptions())
+//        }
+//    }
+//
+//    private fun navOptions() = NavOptions.Builder()
+//        .setEnterAnim(R.anim.nav_default_enter_anim)
+//        .setExitAnim(R.anim.nav_default_exit_anim)
+//        .setPopEnterAnim(R.anim.nav_default_pop_enter_anim)
+//        .setPopExitAnim(R.anim.nav_default_pop_exit_anim)
+//        .build()
 }
 
 

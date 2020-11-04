@@ -1,90 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-xmlns:tools="http://schemas.android.com/tools"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-tools:context=".view.ui.home.hotel.HotelFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ui.home.hotel.HotelFragment">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/appBar"
+
+    <com.yalantis.jellytoolbar.widget.JellyToolbar
+        android:id="@+id/toolBar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:cardBackgroundColor="@color/colorPrimary"
+        android:layout_height="70dp"
+        android:background="@color/colorTransparent"
+        app:cancelIcon="@drawable/ic_close"
+        app:endColor="#535A5A"
+        app:icon="@drawable/ic_search"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/icBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="2dp"
-                android:padding="8dp"
-                android:elevation="10dp"
-                android:alpha="0.0"
-                android:foreground="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/ic_back"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
-
-            <com.yalantis.jellytoolbar.widget.JellyToolbar
-                android:id="@+id/toolBar"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="@color/colorPrimary"
-                app:cancelIcon="@drawable/ic_close"
-                app:endColor="#0F6165"
-                app:icon="@drawable/ic_search"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:startColor="#18888E"
-                app:title="@string/hotels"
-                app:titleTextColor="@android:color/white" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:startColor="#1A1B1B"
+        app:titleTextColor="@android:color/white" />
 
     <TextView
         android:id="@+id/totalFound"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/total_found"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/total_found"
+        android:textColor="@color/colorAccent"
         android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/appBar"
-        android:textColor="@android:color/black"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolBar" />
 
     <TextView
         android:id="@+id/totalFoundResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="100"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/totalFound"
-        android:layout_marginTop="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="100"
+        android:textColor="@android:color/darker_gray"
         android:textSize="14sp"
-        android:textColor="@android:color/darker_gray"/>
+        app:layout_constraintLeft_toRightOf="@id/totalFound"
+        app:layout_constraintTop_toBottomOf="@+id/toolBar" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerHotel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/totalFound"
+        android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="8dp"/>
+        app:layout_constraintTop_toBottomOf="@id/totalFound" />
 
     <ProgressBar
         android:id="@+id/LoadingBar"
@@ -100,9 +67,9 @@ tools:context=".view.ui.home.hotel.HotelFragment">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="No Data Found!!"
-        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:visibility="gone"/>
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
