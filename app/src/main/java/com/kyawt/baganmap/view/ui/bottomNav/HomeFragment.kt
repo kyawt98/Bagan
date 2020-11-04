@@ -52,6 +52,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupTabs()
         setupImageSlider()
+        scrollableLayout.scheduleLayoutAnimation()
     }
 
     private fun setupTabs() {
