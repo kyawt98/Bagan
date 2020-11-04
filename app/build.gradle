@@ -96,7 +96,8 @@ dependencies {
 //    Scrollview
     implementation "com.github.skydoves:indicatorscrollview:1.0.3"
 
-
+// Jelly Toolbar
+    implementation 'com.github.yalantis:jellytoolbar:v1.0'
 
 
 
