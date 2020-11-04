@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/pagodaFragment"
+        android:title="@string/pagodas"
+        android:icon="@drawable/ic_phone"
+        android:checked="true"
+        android:iconTint="@color/colorAccent"/>
+
+    <item android:id="@+id/hotelFragment"
+        android:title="@string/hotels"
+        android:iconTint="@color/colorAccent"/>
+</menu>

@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/Theme.Design.NoActionBar"
+    android:background="@color/darkColor"
     tools:context=".view.ui.bottomNav.SettingFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardAppBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:cardBackgroundColor="@android:color/white"
+        app:cardBackgroundColor="@color/darkColor"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -25,7 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/settings"
-                android:textSize="24sp"
+                android:textSize="32sp"
                 android:layout_marginLeft="24dp"
                 android:textColor="@color/colorPrimary"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -35,49 +35,11 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <!--    <androidx.cardview.widget.CardView-->
-    <!--        android:id="@+id/cardTheme"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="50dp"-->
-    <!--        android:foreground="?attr/selectableItemBackgroundBorderless"-->
-    <!--        app:cardBackgroundColor="@android:color/white"-->
-    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/cardAppBar">-->
-
-    <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-    <!--            android:id="@+id/themLayout"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="match_parent">-->
-
-    <!--&lt;!&ndash;            <Switch&ndash;&gt;-->
-    <!--&lt;!&ndash;                android:id="@+id/switchTheme"&ndash;&gt;-->
-    <!--&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
-    <!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
-    <!--&lt;!&ndash;                android:text="Light Mode"&ndash;&gt;-->
-    <!--&lt;!&ndash;                android:checked="false"&ndash;&gt;-->
-    <!--&lt;!&ndash;                android:layout_marginLeft="24dp"&ndash;&gt;-->
-    <!--&lt;!&ndash;                android:textColor="@android:color/black"&ndash;&gt;-->
-    <!--&lt;!&ndash;                app:layout_constraintLeft_toLeftOf="parent"&ndash;&gt;-->
-    <!--&lt;!&ndash;                app:layout_constraintTop_toTopOf="parent"&ndash;&gt;-->
-    <!--&lt;!&ndash;                app:layout_constraintBottom_toBottomOf="parent"/>&ndash;&gt;-->
-
-    <!--            <Button-->
-    <!--                android:id="@+id/btnTheme"-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:text="Dark Mode"-->
-    <!--                app:layout_constraintTop_toTopOf="parent"-->
-    <!--                app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--                app:layout_constraintRight_toRightOf="parent"/>-->
-
-    <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
-    <!--    </androidx.cardview.widget.CardView>-->
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardLanguage"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:cardBackgroundColor="@android:color/white"
+        app:cardBackgroundColor="@color/darkColor"
         app:cardPreventCornerOverlap="false"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardAppBar">
@@ -92,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:text="@string/language"
-                android:textColor="@android:color/black"
+                android:textColor="@color/colorAccent"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -104,11 +66,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
                 android:spinnerMode="dropdown"
-                android:popupBackground="@color/colorPrimary"
+                android:popupBackground="@color/colorAccent"
                 android:popupElevation="8dp"
-                android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+                android:foregroundTint="@color/colorAccent"
+                android:theme="@android:style/Theme.Holo.Light.Dialog"
                 android:textAlignment="textEnd"
-                android:popupTheme="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Small"
+                android:backgroundTint="@color/colorAccent"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -122,8 +85,8 @@
         android:id="@+id/cardPrivacy"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        app:cardBackgroundColor="@color/darkColor"
         android:foreground="?attr/selectableItemBackgroundBorderless"
-        app:cardBackgroundColor="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardLanguage">
 
@@ -136,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:text="@string/privacy_policy"
-                android:textColor="@android:color/black"
+                android:textColor="@color/colorAccent"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -148,8 +111,8 @@
         android:id="@+id/cardAbout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        app:cardBackgroundColor="@color/darkColor"
         android:foreground="?attr/selectableItemBackgroundBorderless"
-        app:cardBackgroundColor="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardPrivacy">
 
@@ -162,7 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:text="@string/about_us"
-                android:textColor="@android:color/black"
+                android:textColor="@color/colorAccent"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -174,8 +137,8 @@
         android:id="@+id/cardVersion"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        app:cardBackgroundColor="@color/darkColor"
         android:foreground="?attr/selectableItemBackgroundBorderless"
-        app:cardBackgroundColor="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardAbout">
 
@@ -188,7 +151,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:text="@string/v_1_0"
-                android:textColor="@android:color/black"
+                android:textColor="@color/colorAccent"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -200,8 +163,8 @@
         android:id="@+id/cardSpace"
         android:layout_width="match_parent"
         android:layout_height="420dp"
+        app:cardBackgroundColor="@color/darkColor"
         android:foreground="?attr/selectableItemBackgroundBorderless"
-        app:cardBackgroundColor="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardVersion">
 

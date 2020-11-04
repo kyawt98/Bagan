@@ -1,26 +1,39 @@
 package com.kyawt.baganmap.view.ui.bottomNav
 
 import android.animation.ObjectAnimator
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.util.Log
+import android.view.*
 import android.widget.Switch
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.BlendModeColorFilterCompat
+import androidx.core.graphics.BlendModeCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
 import androidx.navigation.NavOptions
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.custom.sliderimage.logic.SliderImage
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.kyawt.baganmap.R
+import com.kyawt.baganmap.view.exts.gone
+import com.kyawt.baganmap.view.exts.visible
+import com.kyawt.baganmap.view.viewpager.TabsPagerAdapter
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
 class HomeFragment : Fragment() {
     lateinit var supportActionBar: ActionBar
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,25 +50,37 @@ class HomeFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupCards()
+        setupTabs()
         setupImageSlider()
     }
 
+    private fun setupTabs() {
+        // Tabs Customization
+        tab_layout.setSelectedTabIndicatorColor(Color.WHITE)
+        tab_layout.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.darkColor))
+        tab_layout.tabTextColors = ContextCompat.getColorStateList(requireContext(), android.R.color.white)
+        val numberOfTabs = 2
+        tab_layout.tabMode = TabLayout.MODE_FIXED
+        tab_layout.tabMode = TabLayout.MODE_FIXED
+        // Set the ViewPager Adapter
+        val adapter = TabsPagerAdapter(requireFragmentManager(), lifecycle, numberOfTabs)
+        tabs_viewpager.adapter = adapter
 
-    private fun setupCards() {
-        cardPagoda.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_homeFragment_to_pagodaFragment, null,
-                navOptions()
-            )
-        }
-        cardHotel.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_homeFragment_to_hotelFragment, null,
-                navOptions()
-            )
-        }
+        // Enable Swipe
+        tabs_viewpager.isUserInputEnabled = true
+
+        TabLayoutMediator(tab_layout, tabs_viewpager) { tab, position ->
+            when (position) {
+                0 -> {
+                    tab.text = "Pagodas"
+                }
+                1 -> {
+                    tab.text = "Hotels"
+                }
+            }
+        }.attach()
     }
+
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setupImageSlider() {
@@ -77,6 +102,7 @@ class HomeFragment : Fragment() {
         slider.addTimerToSlide(5000)
         slider.getIndicator()
     }
+
 }
 
 private fun navOptions() = NavOptions.Builder()

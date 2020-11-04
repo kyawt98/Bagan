@@ -34,13 +34,13 @@ class PagodaFragment : Fragment() {
     }
 
     private fun onBackPressed() {
-        icBack.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_pagodaFragment_to_homeFragment,
-                null,
-                navOptions()
-            )
-        }
+//        icBack.setOnClickListener {
+//            findNavController().navigate(
+//                R.id.action_pagodaFragment_to_homeFragment,
+//                null,
+//                navOptions()
+//            )
+//        }
     }
 
     private fun navOptions() = NavOptions.Builder()
