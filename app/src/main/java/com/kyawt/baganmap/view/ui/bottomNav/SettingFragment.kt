@@ -108,7 +108,6 @@ class SettingFragment : Fragment() {
             setDividerColor(Color.WHITE)
             setDividerSize(2)
             setLifecycleOwner(this@SettingFragment)
-            powerSpinnerView.show() // show the spinner popup
 //            powerSpinnerView.showOrDismiss()
 
             spinnerLanguage.setOnSpinnerItemSelectedListener(
@@ -117,13 +116,22 @@ class SettingFragment : Fragment() {
                 }
             )
             spinnerLanguage.setOnSpinnerItemSelectedListener<String> { index, _ ->
-               spinnerLanguage.lifecycleOwner = this@SettingFragment
+                powerSpinnerView.show() // show the spinner popup
+                spinnerLanguage.lifecycleOwner = this@SettingFragment
                 when (index) {
                     0 -> setLocale("en")
                     1 -> setLocale("mm")
                 }
             }
-//            spinnerLanguage.dismissWhenNotifiedItemSelected = true
+            powerSpinnerView.dismissWhenNotifiedItemSelected = true
+            powerSpinnerView.showOrDismiss()
+
+
+            spinnerLanguage.setOnSpinnerDismissListener {
+                powerSpinnerView.dismiss()
+                powerSpinnerView.showOrDismiss()
+            }
+
 //            spinnerLanguage.disableChangeTextWhenNotified = true
 //            powerSpinnerView.dismiss() // dismiss the spinner popup
         }
