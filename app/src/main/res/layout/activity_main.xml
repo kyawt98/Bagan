@@ -22,5 +22,4 @@
         android:layout_alignParentBottom="true"
         app:backgroundColor="@color/darkColor"
         app:menu="@menu/menu" />
-
 </RelativeLayout>

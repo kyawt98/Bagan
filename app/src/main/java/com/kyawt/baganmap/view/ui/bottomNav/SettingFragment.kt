@@ -97,7 +97,7 @@ class SettingFragment : Fragment() {
     private fun setupLanguage(){
         val mySpinnerView = createPowerSpinnerView(requireContext()) {
             setSpinnerPopupWidth(300)
-            setSpinnerPopupHeight(350)
+            setSpinnerPopupHeight(400)
             setArrowPadding(6)
             setArrowAnimate(true)
             setArrowAnimationDuration(200L)

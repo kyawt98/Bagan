@@ -24,13 +24,13 @@
                 android:id="@+id/txtTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/settings"
-                android:textSize="24sp"
                 android:layout_marginLeft="24dp"
+                android:text="@string/settings"
                 android:textColor="@color/colorPrimary"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -60,36 +60,20 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-<!--            <androidx.appcompat.widget.AppCompatSpinner-->
-<!--                android:id="@+id/spinnerLanguage"-->
-<!--                android:layout_width="200dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginRight="16dp"-->
-<!--                android:spinnerMode="dropdown"-->
-<!--                android:popupBackground="@color/colorAccent"-->
-<!--                android:popupElevation="8dp"-->
-<!--                android:foregroundTint="@color/colorAccent"-->
-<!--                android:theme="@android:style/Theme.Holo.Light.Dialog"-->
-<!--                android:textAlignment="textEnd"-->
-<!--                android:backgroundTint="@color/colorAccent"-->
-<!--                android:textSize="12sp"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintRight_toRightOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
-
             <com.skydoves.powerspinner.PowerSpinnerView
                 android:id="@+id/spinnerLanguage"
-                android:layout_width="200dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
-                android:background="@color/darkColor"
-                android:gravity="center"
-                android:hint="Select Language"
-                android:padding="10dp"
-                app:spinner_preference_name="English"
                 android:layout_marginRight="16dp"
+                android:background="@color/darkColor"
+                android:gravity="left"
+                android:padding="16dp"
                 android:textColor="@color/colorPrimary"
                 android:textColorHint="@color/colorPrimary"
                 android:textSize="14.5sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:spinner_arrow_gravity="end"
                 app:spinner_arrow_padding="8dp"
                 app:spinner_divider_color="#9DEAED"
@@ -99,11 +83,7 @@
                 app:spinner_popup_animation="dropdown"
                 app:spinner_popup_background="@color/darkLightColor"
                 app:spinner_popup_elevation="14dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"/>
-
-
+                app:spinner_preference_name="English" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -111,8 +91,8 @@
         android:id="@+id/cardPrivacy"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:cardBackgroundColor="@color/darkColor"
         android:foreground="?attr/selectableItemBackgroundBorderless"
+        app:cardBackgroundColor="@color/darkColor"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardLanguage">
 
@@ -137,8 +117,8 @@
         android:id="@+id/cardAbout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:cardBackgroundColor="@color/darkColor"
         android:foreground="?attr/selectableItemBackgroundBorderless"
+        app:cardBackgroundColor="@color/darkColor"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardPrivacy">
 
@@ -163,8 +143,8 @@
         android:id="@+id/cardVersion"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:cardBackgroundColor="@color/darkColor"
         android:foreground="?attr/selectableItemBackgroundBorderless"
+        app:cardBackgroundColor="@color/darkColor"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardAbout">
 
@@ -189,8 +169,8 @@
         android:id="@+id/cardSpace"
         android:layout_width="match_parent"
         android:layout_height="420dp"
-        app:cardBackgroundColor="@color/darkColor"
         android:foreground="?attr/selectableItemBackgroundBorderless"
+        app:cardBackgroundColor="@color/darkColor"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardVersion">
 
