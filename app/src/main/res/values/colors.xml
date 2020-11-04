@@ -12,4 +12,5 @@
     <color name="nightColorPrimary">#1EA8A8</color>
     <color name="nightColorPrimaryDark">#86BFBD</color>
     <color name="nightColorAccent">#EDF7FA</color>
+    <color name="md_200">#053436</color>
 </resources>

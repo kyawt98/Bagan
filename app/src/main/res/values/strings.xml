@@ -22,4 +22,10 @@
     <string name="pagodas">Pagodas</string>
     <string name="hotels">Hotels</string>
     <string name="highlights">HighLights</string>
+
+
+    <string-array name="languages">
+        <item>English</item>
+        <item>Myanmar</item>
+    </string-array>
 </resources>

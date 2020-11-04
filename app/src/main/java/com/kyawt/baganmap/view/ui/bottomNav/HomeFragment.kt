@@ -16,25 +16,15 @@ import androidx.core.graphics.BlendModeCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.custom.sliderimage.logic.SliderImage
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.kyawt.baganmap.R
-import com.kyawt.baganmap.view.exts.gone
-import com.kyawt.baganmap.view.exts.visible
 import com.kyawt.baganmap.view.viewpager.TabsPagerAdapter
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
 class HomeFragment : Fragment() {
-    lateinit var supportActionBar: ActionBar
-    private lateinit var navController: NavController
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -81,7 +71,6 @@ class HomeFragment : Fragment() {
             }
         }.attach()
     }
-
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setupImageSlider() {

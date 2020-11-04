@@ -7,6 +7,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,12 +18,14 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.*
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.kyawt.baganmap.R
 import com.kyawt.baganmap.utils.MyPreferences
 import com.kyawt.baganmap.view.exts.visible
+import com.skydoves.powerspinner.*
 import kotlinx.android.synthetic.main.fragment_setting.*
 import kotlinx.android.synthetic.main.fragment_setting.view.*
 import java.util.*
@@ -48,27 +51,22 @@ class SettingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupChangeLanguage()
+        setupLanguage()
         onPressedCards()
-//        checkTheme()
-//        changeThemeAction()
-
     }
 
-//    private fun changeThemeAction() {
+//    override fun onActivityCreated(savedInstanceState: Bundle?) {
+//        super.onActivityCreated(savedInstanceState)
+//        if (currentLanguage == "en"){
+//            spinnerLanguage.hint = "English"
+//        }
+//        if (currentLanguage == "mm"){
+//            spinnerLanguage.hint = "Myanmar"
+//        }
 //
-//            val btnTheme = Button(context).apply {
-//                text = if (getDefaultNightMode() != MODE_NIGHT_YES) "Go Dark " else "Go Light"
-//                layoutParams = ActionBar.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
-//            }
-//
-//            (themLayout.decorView as ViewGroup).addView(btnTheme) // or `yourContainer.addView(darkButton)`
-//
-//            btnTheme.setOnClickListener {
-//                AppCompatDelegate.setDefaultNightMode(
-//                    if (getDefaultNightMode() != MODE_NIGHT_YES) MODE_NIGHT_YES else MODE_NIGHT_NO
-//                )
-//            }
+//        else {
+//            spinnerLanguage.hint = "English"
+//        }
 //    }
 
     private fun onPressedCards() {
@@ -96,31 +94,38 @@ class SettingFragment : Fragment() {
         .setPopExitAnim(R.anim.nav_default_pop_exit_anim)
         .build()
 
-    private fun setupChangeLanguage() {
-        currentLanguage = currentLang.toString()
-        val list = ArrayList<String>()
-        list.add("Select Language")
-        list.add("English")
-        list.add("Myanmar")
-        val adapter = ArrayAdapter(requireContext(), R.layout.support_simple_spinner_dropdown_item, list)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinnerLanguage.adapter = adapter
-        spinnerLanguage.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View,
-                position: Int,
-                id: Long
-            ) {
-                when (position) {
-                    0 -> {
-                    }
-                    1 -> setLocale("en")
-                    2 -> setLocale("mm")
+    private fun setupLanguage(){
+        val mySpinnerView = createPowerSpinnerView(requireContext()) {
+            setSpinnerPopupWidth(300)
+            setSpinnerPopupHeight(350)
+            setArrowPadding(6)
+            setArrowAnimate(true)
+            setArrowAnimationDuration(200L)
+            setArrowGravity(SpinnerGravity.START)
+            setArrowTint(ContextCompat.getColor(requireContext(), R.color.md_200))
+            setSpinnerPopupAnimation(SpinnerAnimation.BOUNCE)
+            setShowDivider(true)
+            setDividerColor(Color.WHITE)
+            setDividerSize(2)
+            setLifecycleOwner(this@SettingFragment)
+            powerSpinnerView.show() // show the spinner popup
+//            powerSpinnerView.showOrDismiss()
+
+            spinnerLanguage.setOnSpinnerItemSelectedListener(
+                OnSpinnerItemSelectedListener<IconSpinnerItem> { _, item ->
+                    Toast.makeText(requireContext(), item.text, Toast.LENGTH_SHORT).show()
+                }
+            )
+            spinnerLanguage.setOnSpinnerItemSelectedListener<String> { index, _ ->
+               spinnerLanguage.lifecycleOwner = this@SettingFragment
+                when (index) {
+                    0 -> setLocale("en")
+                    1 -> setLocale("mm")
                 }
             }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {}
+//            spinnerLanguage.dismissWhenNotifiedItemSelected = true
+//            spinnerLanguage.disableChangeTextWhenNotified = true
+//            powerSpinnerView.dismiss() // dismiss the spinner popup
         }
     }
 
@@ -132,14 +137,16 @@ class SettingFragment : Fragment() {
             val conf = res.configuration
             conf.locale = locale
             res.updateConfiguration(conf, dm)
-            restartSelf()
 
         } else {
-            Toast.makeText(
-                context, "Language, , already, , selected)!", Toast.LENGTH_LONG
-            ).show();
+            locale = Locale(currentLanguage)
+            val res = resources
+            val dm = res.displayMetrics
+            val conf = res.configuration
+            conf.locale = locale
+            res.updateConfiguration(conf, dm)
         }
-
+        restartSelf()
     }
 
     private fun restartSelf() {
