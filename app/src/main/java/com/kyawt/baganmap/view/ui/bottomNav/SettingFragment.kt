@@ -57,12 +57,12 @@ class SettingFragment : Fragment() {
 //        changeThemeAction()
     }
 
-//    private fun changeThemeAction() {
+ //  private fun changeThemeAction() {
 //
-//            val btnTheme = Button(context).apply {
-//                text = if (getDefaultNightMode() != MODE_NIGHT_YES) "Go Dark " else "Go Light"
-//                layoutParams = ActionBar.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
-//            }
+ //          val btnTheme = Button(context).apply {
+   //             text = if (getDefaultNightMode() != MODE_NIGHT_YES) "Go Dark " else "Go Light"
+   //             layoutParams = ActionBar.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
+  //          }
 //
 //            (themLayout.decorView as ViewGroup).addView(btnTheme) // or `yourContainer.addView(darkButton)`
 //
