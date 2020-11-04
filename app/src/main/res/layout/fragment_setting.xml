@@ -11,7 +11,7 @@
         android:id="@+id/cardAppBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardBackgroundColor="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -25,54 +25,53 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/settings"
-                android:textColor="@color/colorAccent"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:textSize="24sp"
+                android:layout_marginLeft="24dp"
+                android:textColor="@color/colorPrimary"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-<!--    <androidx.cardview.widget.CardView-->
-<!--        android:id="@+id/cardTheme"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:foreground="?attr/selectableItemBackgroundBorderless"-->
-<!--        app:cardBackgroundColor="@android:color/white"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/cardAppBar">-->
+    <!--    <androidx.cardview.widget.CardView-->
+    <!--        android:id="@+id/cardTheme"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:foreground="?attr/selectableItemBackgroundBorderless"-->
+    <!--        app:cardBackgroundColor="@android:color/white"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/cardAppBar">-->
 
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:id="@+id/themLayout"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent">-->
+    <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--            android:id="@+id/themLayout"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent">-->
 
-<!--&lt;!&ndash;            <Switch&ndash;&gt;-->
-<!--&lt;!&ndash;                android:id="@+id/switchTheme"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:text="Light Mode"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:checked="false"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_marginLeft="24dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:textColor="@android:color/black"&ndash;&gt;-->
-<!--&lt;!&ndash;                app:layout_constraintLeft_toLeftOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;                app:layout_constraintTop_toTopOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;                app:layout_constraintBottom_toBottomOf="parent"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;            <Switch&ndash;&gt;-->
+    <!--&lt;!&ndash;                android:id="@+id/switchTheme"&ndash;&gt;-->
+    <!--&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;                android:text="Light Mode"&ndash;&gt;-->
+    <!--&lt;!&ndash;                android:checked="false"&ndash;&gt;-->
+    <!--&lt;!&ndash;                android:layout_marginLeft="24dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;                android:textColor="@android:color/black"&ndash;&gt;-->
+    <!--&lt;!&ndash;                app:layout_constraintLeft_toLeftOf="parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;                app:layout_constraintTop_toTopOf="parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;                app:layout_constraintBottom_toBottomOf="parent"/>&ndash;&gt;-->
 
-<!--            <Button-->
-<!--                android:id="@+id/btnTheme"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Dark Mode"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintRight_toRightOf="parent"/>-->
+    <!--            <Button-->
+    <!--                android:id="@+id/btnTheme"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:text="Dark Mode"-->
+    <!--                app:layout_constraintTop_toTopOf="parent"-->
+    <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--                app:layout_constraintRight_toRightOf="parent"/>-->
 
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
-<!--    </androidx.cardview.widget.CardView>-->
+    <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--    </androidx.cardview.widget.CardView>-->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardLanguage"
@@ -94,23 +93,23 @@
                 android:layout_marginLeft="24dp"
                 android:text="@string/language"
                 android:textColor="@android:color/black"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Spinner
+            <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/spinnerLanguage"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
-                android:pointerIcon="arrow"
-                android:popupBackground="@color/colorPrimaryDark"
-                android:popupElevation="0dp"
-                android:popupTheme="@android:style/ThemeOverlay.Material.Light"
+                android:spinnerMode="dropdown"
+                android:popupBackground="@color/colorPrimary"
+                android:popupElevation="8dp"
+                android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
                 android:textAlignment="textEnd"
+                android:popupTheme="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Small"
                 android:textSize="12sp"
-                android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar.MinWidth"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -138,7 +137,7 @@
                 android:layout_marginLeft="24dp"
                 android:text="@string/privacy_policy"
                 android:textColor="@android:color/black"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -164,7 +163,7 @@
                 android:layout_marginLeft="24dp"
                 android:text="@string/about_us"
                 android:textColor="@android:color/black"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -190,7 +189,7 @@
                 android:layout_marginLeft="24dp"
                 android:text="@string/v_1_0"
                 android:textColor="@android:color/black"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
