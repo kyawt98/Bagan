@@ -38,7 +38,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardLanguage"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="55dp"
         app:cardBackgroundColor="@color/darkColor"
         app:cardPreventCornerOverlap="false"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -48,16 +48,27 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <ImageView
+                android:id="@+id/icLanguage"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="24dp"
+                android:src="@drawable/ic_language"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/colorAccent" />
+
             <TextView
                 android:id="@+id/txtLanguage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
+                android:layout_marginLeft="16dp"
                 android:text="@string/language"
                 android:textColor="@color/colorAccent"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/icLanguage"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.skydoves.powerspinner.PowerSpinnerView
@@ -66,8 +77,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
                 android:background="@color/darkColor"
-                android:gravity="left"
+                android:gravity="center"
                 android:padding="16dp"
+                android:hint="English"
                 android:textColor="@color/colorPrimary"
                 android:textColorHint="@color/colorPrimary"
                 android:textSize="14.5sp"
@@ -90,7 +102,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardPrivacy"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="55dp"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         app:cardBackgroundColor="@color/darkColor"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -100,15 +112,26 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <ImageView
+                android:id="@+id/icPrivacy"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="24dp"
+                android:src="@drawable/ic_shield"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/colorAccent" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
+                android:layout_marginLeft="16dp"
                 android:text="@string/privacy_policy"
                 android:textColor="@color/colorAccent"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/icPrivacy"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -116,7 +139,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardAbout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="55dp"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         app:cardBackgroundColor="@color/darkColor"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -126,15 +149,26 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <ImageView
+                android:id="@+id/icAbout"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="24dp"
+                android:src="@drawable/ic_round_info_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/colorAccent" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
+                android:layout_marginLeft="16dp"
                 android:text="@string/about_us"
                 android:textColor="@color/colorAccent"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/icAbout"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -142,7 +176,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardVersion"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="55dp"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         app:cardBackgroundColor="@color/darkColor"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -152,15 +186,63 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <ImageView
+                android:id="@+id/icAndroid"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="24dp"
+                android:src="@drawable/ic_android"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/colorAccent" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
+                android:layout_marginLeft="16dp"
                 android:text="@string/v_1_0"
                 android:textColor="@color/colorAccent"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/icAndroid"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardExit"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        app:cardBackgroundColor="@color/darkColor"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardVersion">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/icExit"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="28dp"
+                android:src="@drawable/ic_logout"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/colorAccent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:text="@string/exit"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/icExit"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -168,11 +250,11 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardSpace"
         android:layout_width="match_parent"
-        android:layout_height="420dp"
+        android:layout_height="400dp"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         app:cardBackgroundColor="@color/darkColor"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardVersion">
+        app:layout_constraintTop_toBottomOf="@id/cardExit">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -187,6 +269,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
+        android:elevation="10dp"
+        android:indeterminateTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

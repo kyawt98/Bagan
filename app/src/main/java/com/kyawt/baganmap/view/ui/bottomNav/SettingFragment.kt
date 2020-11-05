@@ -9,6 +9,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +30,7 @@ import com.skydoves.powerspinner.*
 import kotlinx.android.synthetic.main.fragment_setting.*
 import kotlinx.android.synthetic.main.fragment_setting.view.*
 import java.util.*
+import kotlin.system.exitProcess
 
 class SettingFragment : Fragment() {
     lateinit var locale: Locale
@@ -53,7 +55,9 @@ class SettingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupLanguage()
         onPressedCards()
+        exitFromApp()
     }
+
     private fun onPressedCards() {
         cardAbout.setOnClickListener {
             findNavController().navigate(
@@ -79,7 +83,7 @@ class SettingFragment : Fragment() {
         .setPopExitAnim(R.anim.nav_default_pop_exit_anim)
         .build()
 
-    private fun setupLanguage(){
+    private fun setupLanguage() {
         val mySpinnerView = createPowerSpinnerView(requireContext()) {
             setSpinnerPopupWidth(300)
             setSpinnerPopupHeight(400)
@@ -95,11 +99,6 @@ class SettingFragment : Fragment() {
             setLifecycleOwner(this@SettingFragment)
 //            powerSpinnerView.showOrDismiss()
 
-            spinnerLanguage.setOnSpinnerItemSelectedListener(
-                OnSpinnerItemSelectedListener<IconSpinnerItem> { _, item ->
-                    Toast.makeText(requireContext(), item.text, Toast.LENGTH_SHORT).show()
-                }
-            )
             spinnerLanguage.setOnSpinnerItemSelectedListener<String> { index, _ ->
                 powerSpinnerView.show() // show the spinner popup
                 spinnerLanguage.lifecycleOwner = this@SettingFragment
@@ -144,18 +143,30 @@ class SettingFragment : Fragment() {
 
     private fun restartSelf() {
         LoadingBar.visible()
+        Handler().postDelayed({
+            val am =
+                requireActivity().getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            am[AlarmManager.RTC_WAKEUP, Calendar.getInstance().timeInMillis + 500] =
+                PendingIntent.getActivity(
+                    activity, 0, requireActivity().intent, PendingIntent.FLAG_ONE_SHOT
+                            or PendingIntent.FLAG_CANCEL_CURRENT
+                )
+            val i = requireActivity().baseContext.packageManager
+                .getLaunchIntentForPackage(requireActivity().baseContext.packageName)
+            i!!.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(i)
+        }, 2000)
 
-        val am =
-            requireActivity().getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        am[AlarmManager.RTC_WAKEUP, Calendar.getInstance().timeInMillis + 500] =
-            PendingIntent.getActivity(
-                activity, 0, requireActivity().intent, PendingIntent.FLAG_ONE_SHOT
-                        or PendingIntent.FLAG_CANCEL_CURRENT
-            )
-        val i = requireActivity().baseContext.packageManager
-            .getLaunchIntentForPackage(requireActivity().baseContext.packageName)
-        i!!.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        startActivity(i)
+    }
+
+    private fun exitFromApp() {
+        cardExit.setOnClickListener {
+            LoadingBar.visible()
+            Handler().postDelayed({
+                android.os.Process.killProcess(android.os.Process.myPid())
+                exitProcess(0)
+            }, 3000)
+        }
     }
 
 }

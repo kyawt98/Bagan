@@ -10,7 +10,7 @@
     <string name="language">Language</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="about_us">About Us</string>
-    <string name="v_1_0">v 1.0</string>
+    <string name="v_1_0">version 1.0</string>
     <string name="total_found">total found:</string>
     <string name="contact_us">Contact Us</string>
     <string name="dark_mode">Dark mode</string>
@@ -22,6 +22,7 @@
     <string name="pagodas">Pagodas</string>
     <string name="hotels">Hotels</string>
     <string name="highlights">HighLights</string>
+    <string name="exit">Exit</string>
 
 
     <string-array name="languages">
