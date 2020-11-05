@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.Window
 import android.view.WindowManager
-import com.kyawt.baganmap.view.ui.bottomNav.HomeFragment
+import com.daimajia.androidanimations.library.Techniques
+import com.daimajia.androidanimations.library.YoYo
+import kotlinx.android.synthetic.main.activity_splash_screen.*
 
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +20,11 @@ class SplashScreen : AppCompatActivity() {
     }
 
     private fun setupSplash(){
+        YoYo.with(Techniques.FadeIn)
+            .duration(1200)
+            .delay(1)
+            .repeat(YoYo.INFINITE)
+            .playOn(txtLoading)
         Handler().postDelayed({
             startActivity(Intent(this, MainActivity::class.java))
             finish()

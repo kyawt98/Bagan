@@ -161,11 +161,26 @@ class SettingFragment : Fragment() {
 
     private fun exitFromApp() {
         cardExit.setOnClickListener {
-            LoadingBar.visible()
-            Handler().postDelayed({
-                android.os.Process.killProcess(android.os.Process.myPid())
-                exitProcess(0)
-            }, 3000)
+            val alertDialog: AlertDialog.Builder = AlertDialog.Builder(context, R.style.AlertDialogCustom)
+            alertDialog.setTitle("Confirm your action")
+            alertDialog.setMessage("Are you sure to exit this awesome application?")
+            alertDialog.setPositiveButton(
+                "Exit"
+            ) { _, _ ->
+                LoadingBar.visible()
+                Handler().postDelayed({
+                    android.os.Process.killProcess(android.os.Process.myPid())
+                    exitProcess(0)
+                }, 3000)
+                Toast.makeText(context, "Exiting", Toast.LENGTH_LONG).show()
+            }
+            alertDialog.setNegativeButton(
+                "Cancel"
+            ) { _, _ -> }
+            val alert: AlertDialog = alertDialog.create()
+            alert.setCanceledOnTouchOutside(false)
+            alert.show()
+
         }
     }
 
