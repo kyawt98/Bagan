@@ -61,12 +61,14 @@ class HomeFragment : Fragment() {
         tabs_viewpager.isUserInputEnabled = true
 
         TabLayoutMediator(tab_layout, tabs_viewpager) { tab, position ->
+            val pagoda = resources.getString(R.string.pagodas)
+            val hotel = resources.getString(R.string.hotels)
             when (position) {
                 0 -> {
-                    tab.text = "Pagodas"
+                    tab.text = pagoda
                 }
                 1 -> {
-                    tab.text = "Hotels"
+                    tab.text = hotel
                 }
             }
         }.attach()

@@ -54,7 +54,6 @@ class SettingFragment : Fragment() {
         setupLanguage()
         onPressedCards()
     }
-
     private fun onPressedCards() {
         cardAbout.setOnClickListener {
             findNavController().navigate(

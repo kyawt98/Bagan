@@ -56,12 +56,11 @@ class HotelFragment : Fragment() {
                 }
             }
         }
-        toolBar.toolbar?.setPadding(0, getStatusBarHeight(), 0, 16)
+        toolBar.toolbar?.setPadding(0, getStatusBarHeight(), 0, 0)
         val etd = LayoutInflater.from(context).inflate(R.layout.edit_text, null) as AppCompatEditText
         etd.setBackgroundResource(R.color.colorTransparent)
         toolBar.contentView = etd
     }
-
 
     private fun getStatusBarHeight(): Int {
         var result = 0
