@@ -6,12 +6,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.ui.home.pagoda.PagodaDetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
     <androidx.cardview.widget.CardView
         android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
         app:cardBackgroundColor="@color/colorPrimary"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -21,40 +20,196 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/txtTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pagoda"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/icBack"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="50dp"
-                android:textSize="14sp"
-                android:textColor="@android:color/black"/>
-
             <ImageView
                 android:id="@+id/icBack"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="16dp"
-                android:padding="8dp"
-                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:padding="16dp"
                 android:src="@drawable/ic_back"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:tint="@android:color/white" />
 
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pagoda Name"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerPagoda1"
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollableLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/appBar"
+        android:fillViewport="true"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="8dp"/>
+        app:layout_constraintTop_toBottomOf="@id/appBar">
+
+        <com.skydoves.androidveil.VeilLayout
+            android:id="@+id/shimmerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:veilLayout_shimmerEnable="true"
+            app:veilLayout_veiled="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.skydoves.androidveil.VeilRecyclerFrameView
+                    android:id="@+id/recyclerPagodadetail"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    app:veilFrame_baseAlpha="0.6"
+                    app:veilFrame_baseColor="@android:color/holo_green_dark"
+                    app:veilFrame_highlightAlpha="1.0"
+                    app:veilFrame_highlightColor="@android:color/holo_green_light"
+                    app:veilFrame_layout="@layout/item_hotel_img"
+                    app:veilFrame_radius="4dp"
+                    app:veilFrame_shimmerEnable="true"
+                    app:veilFrame_veiled="true"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardPagodaName"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    app:layout_constraintTop_toBottomOf="@id/recyclerPagodadetail"
+                    app:cardBackgroundColor="@color/colorAccent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtPagodaName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            android:text="Pagoda Name"
+                            android:textColor="@color/darkColor"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:layout_marginTop="8dp"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="270dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@id/cardPagodaName">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <fragment
+                            android:id="@+id/map"
+                            android:name="com.google.android.gms.maps.SupportMapFragment"
+                            android:layout_width="0dp"
+                            android:layout_height="200dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/txtdetailLocation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@id/map"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:textSize="14sp"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardsunset"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    app:layout_constraintTop_toBottomOf="@id/cardLocation"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtsunsetLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sunset Place"
+                            android:textSize="16sp"
+                            android:textColor="@color/darkColor"
+                            android:textStyle="bold"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginLeft="8dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/txtsunset"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            app:layout_constraintTop_toBottomOf="@id/txtsunsetLabel"
+                            app:layout_constraintLeft_toLeftOf="@id/txtsunsetLabel"
+                            android:maxLines="2"/>
+
+                        <Button
+                            android:id="@+id/btnSeeAll"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="See all Sunset Place"
+                            android:textAllCaps="false"
+                            app:layout_constraintTop_toBottomOf="@id/txtsunset"
+                            app:layout_constraintLeft_toLeftOf="@id/txtsunset"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="14sp"
+                            android:background="@android:color/transparent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.skydoves.androidveil.VeilLayout>
+    </androidx.core.widget.NestedScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
