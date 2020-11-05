@@ -55,29 +55,6 @@ class SettingFragment : Fragment() {
         onPressedCards()
     }
 
-<<<<<<< HEAD
- //  private fun changeThemeAction() {
-//
- //          val btnTheme = Button(context).apply {
-   //             text = if (getDefaultNightMode() != MODE_NIGHT_YES) "Go Dark " else "Go Light"
-   //             layoutParams = ActionBar.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
-  //          }
-=======
-//    override fun onActivityCreated(savedInstanceState: Bundle?) {
-//        super.onActivityCreated(savedInstanceState)
-//        if (currentLanguage == "en"){
-//            spinnerLanguage.hint = "English"
-//        }
-//        if (currentLanguage == "mm"){
-//            spinnerLanguage.hint = "Myanmar"
-//        }
->>>>>>> 77456f837bb29c8ebb5021300e88166c15ce2ca3
-//
-//        else {
-//            spinnerLanguage.hint = "English"
-//        }
-//    }
-
     private fun onPressedCards() {
         cardAbout.setOnClickListener {
             findNavController().navigate(

@@ -46,7 +46,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollableLayout"
         android:layout_width="match_parent"
@@ -74,6 +73,9 @@
                     android:id="@+id/recyclerHotelImg"
                     android:layout_width="0dp"
                     android:layout_height="200dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:veilFrame_baseAlpha="0.6"
                     app:veilFrame_baseColor="@android:color/holo_green_dark"
                     app:veilFrame_highlightAlpha="1.0"
@@ -81,19 +83,17 @@
                     app:veilFrame_layout="@layout/item_hotel_img"
                     app:veilFrame_radius="4dp"
                     app:veilFrame_shimmerEnable="true"
-                    app:veilFrame_veiled="true"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"/>
+                    app:veilFrame_veiled="true" />
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardHotelName"
                     android:layout_width="0dp"
                     android:layout_height="80dp"
-                    app:layout_constraintTop_toBottomOf="@id/recyclerHotelImg"
                     app:cardBackgroundColor="@color/colorAccent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent">
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recyclerHotelImg">
+
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
@@ -102,14 +102,14 @@
                             android:id="@+id/txtHotelName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
+                            android:layout_marginTop="8dp"
                             android:text="Royal Bagan Hotel"
                             android:textColor="@color/darkColor"
-                            android:textStyle="bold"
                             android:textSize="20sp"
-                            android:layout_marginTop="8dp"/>
+                            android:textStyle="bold"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -118,11 +118,12 @@
                     android:id="@+id/cardRoom"
                     android:layout_width="0dp"
                     android:layout_height="180dp"
-                    app:layout_constraintTop_toBottomOf="@id/cardHotelName"
+                    android:layout_marginTop="8dp"
+                    android:padding="8dp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    android:padding="8dp"
-                    android:layout_marginTop="8dp">
+                    app:layout_constraintTop_toBottomOf="@id/cardHotelName">
+
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
@@ -131,85 +132,85 @@
                             android:id="@+id/txtRoomType"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Deluxe Double Room"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            android:layout_marginTop="8dp"
                             android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:text="Deluxe Double Room"
+                            android:textColor="@color/darkColor"
                             android:textSize="18sp"
-                            android:textColor="@color/darkColor"/>
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/txtPriceFor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:layout_constraintTop_toBottomOf="@id/txtRoomType"
-                            app:layout_constraintLeft_toLeftOf="@id/txtRoomType"
                             android:layout_marginTop="8dp"
                             android:text="@string/price_for_2_person"
+                            android:textColor="@android:color/darker_gray"
                             android:textSize="14sp"
-                            android:textColor="@android:color/darker_gray"/>
+                            app:layout_constraintLeft_toLeftOf="@id/txtRoomType"
+                            app:layout_constraintTop_toBottomOf="@id/txtRoomType" />
 
                         <TextView
                             android:id="@+id/txtBreakfast"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
                             android:text="Breakfast included"
                             android:textColor="@color/darkColor"
-                            android:textStyle="bold"
                             android:textSize="16sp"
-                            android:layout_marginTop="8dp"
+                            android:textStyle="bold"
                             app:layout_constraintLeft_toLeftOf="@id/txtRoomType"
-                            app:layout_constraintTop_toBottomOf="@id/txtPriceFor"/>
+                            app:layout_constraintTop_toBottomOf="@id/txtPriceFor" />
 
                         <TextView
                             android:id="@+id/txtFeesFor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:layout_constraintTop_toBottomOf="@id/txtBreakfast"
+                            android:text="@string/price_for_1_night"
+                            android:textColor="@color/darkColor"
+                            android:textSize="16sp"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
-                            android:text="@string/price_for_1_night"
-                            android:textSize="16sp"
-                            android:textColor="@color/darkColor"/>
+                            app:layout_constraintTop_toBottomOf="@id/txtBreakfast" />
 
                         <TextView
                             android:id="@+id/txtFeesUnits"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
                             android:text="@string/mmk"
                             android:textColor="@color/darkColor"
-                            android:textStyle="bold"
                             android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintHorizontal_chainStyle="packed"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toLeftOf="@id/txtFees"
-                            app:layout_constraintHorizontal_chainStyle="packed"
-                            app:layout_constraintTop_toBottomOf="@id/txtFeesFor"
-                            android:layout_marginTop="8dp"/>
+                            app:layout_constraintTop_toBottomOf="@id/txtFeesFor" />
 
                         <TextView
                             android:id="@+id/txtFees"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="61,999"
-                            android:textStyle="bold"
-                            app:layout_constraintLeft_toRightOf="@id/txtFeesUnits"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintBaseline_toBaselineOf="@id/txtFeesUnits"
                             android:layout_marginLeft="8dp"
-                            android:textSize="18sp"/>
+                            android:text="61,999"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBaseline_toBaselineOf="@id/txtFeesUnits"
+                            app:layout_constraintLeft_toRightOf="@id/txtFeesUnits"
+                            app:layout_constraintRight_toRightOf="parent" />
 
                         <TextView
                             android:id="@+id/txtTaxInclude"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
                             android:text="@string/includes_taxes_and_changes"
-                            app:layout_constraintTop_toBottomOf="@id/txtFeesUnits"
+                            android:textColor="@android:color/darker_gray"
+                            android:textSize="12sp"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
-                            android:textSize="12sp"
-                            android:layout_marginTop="8dp"
-                            android:textColor="@android:color/darker_gray"/>
+                            app:layout_constraintTop_toBottomOf="@id/txtFeesUnits" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -221,6 +222,7 @@
                     android:layout_height="270dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintTop_toBottomOf="@id/cardRoom">
+
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
@@ -230,19 +232,19 @@
                             android:name="com.google.android.gms.maps.SupportMapFragment"
                             android:layout_width="0dp"
                             android:layout_height="200dp"
-                            app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"/>
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/txtAddress"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:layout_constraintTop_toBottomOf="@id/map"
-                            app:layout_constraintLeft_toLeftOf="parent"
                             android:layout_marginLeft="8dp"
                             android:layout_marginTop="8dp"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/map" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
@@ -251,9 +253,10 @@
                     android:id="@+id/cardFacilities"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
-                    app:layout_constraintTop_toBottomOf="@id/cardAddress"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent">
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardAddress">
+
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
@@ -262,40 +265,39 @@
                             android:id="@+id/txtFacilitiesLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/facilities"
-                            android:textSize="16sp"
-                            android:textColor="@color/darkColor"
-                            android:textStyle="bold"
-                            android:layout_marginTop="8dp"
                             android:layout_marginLeft="8dp"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"/>
+                            android:layout_marginTop="8dp"
+                            android:text="@string/facilities"
+                            android:textColor="@color/darkColor"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/txtFacilities"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:maxLines="2"
                             android:textSize="16sp"
-                            app:layout_constraintTop_toBottomOf="@id/txtFacilitiesLabel"
                             app:layout_constraintLeft_toLeftOf="@id/txtFacilitiesLabel"
-                            android:maxLines="2"/>
+                            app:layout_constraintTop_toBottomOf="@id/txtFacilitiesLabel" />
 
                         <Button
                             android:id="@+id/btnSeeAll"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
                             android:text="See all facilities"
                             android:textAllCaps="false"
-                            app:layout_constraintTop_toBottomOf="@id/txtFacilities"
-                            app:layout_constraintLeft_toLeftOf="@id/txtFacilities"
                             android:textColor="@color/colorPrimary"
                             android:textSize="14sp"
-                            android:background="@android:color/transparent"/>
+                            app:layout_constraintLeft_toLeftOf="@id/txtFacilities"
+                            app:layout_constraintTop_toBottomOf="@id/txtFacilities" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.cardview.widget.CardView>
-
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.skydoves.androidveil.VeilLayout>
     </androidx.core.widget.NestedScrollView>
