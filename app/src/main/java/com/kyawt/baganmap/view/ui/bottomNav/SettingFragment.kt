@@ -1,36 +1,33 @@
 package com.kyawt.baganmap.view.ui.bottomNav
 
-import android.app.ActionBar
 import android.app.AlarmManager
 import android.app.AlertDialog
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
+import android.os.Process
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewGroup.LayoutParams.MATCH_PARENT
-import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-import android.widget.*
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.app.AppCompatDelegate.*
-import androidx.constraintlayout.widget.ConstraintLayout
+import android.widget.Toast
+import androidx.core.app.ActivityCompat.finishAffinity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
+import com.kyawt.baganmap.MainActivity
 import com.kyawt.baganmap.R
-import com.kyawt.baganmap.utils.MyPreferences
 import com.kyawt.baganmap.view.exts.visible
-import com.skydoves.powerspinner.*
+import com.skydoves.powerspinner.SpinnerAnimation
+import com.skydoves.powerspinner.SpinnerGravity
+import com.skydoves.powerspinner.createPowerSpinnerView
 import kotlinx.android.synthetic.main.fragment_setting.*
-import kotlinx.android.synthetic.main.fragment_setting.view.*
 import java.util.*
 import kotlin.system.exitProcess
+
 
 class SettingFragment : Fragment() {
     lateinit var locale: Locale
@@ -107,17 +104,22 @@ class SettingFragment : Fragment() {
                     1 -> setLocale("mm")
                 }
             }
-            powerSpinnerView.dismissWhenNotifiedItemSelected = true
-            powerSpinnerView.showOrDismiss()
-
-
-            spinnerLanguage.setOnSpinnerDismissListener {
-                powerSpinnerView.dismiss()
-                powerSpinnerView.showOrDismiss()
-            }
+//            powerSpinnerView.dismissWhenNotifiedItemSelected = true
+//            powerSpinnerView.showOrDismiss()
+//
+//
+//            spinnerLanguage.setOnSpinnerDismissListener {
+//                powerSpinnerView.dismiss()
+//                powerSpinnerView.showOrDismiss()
+//            }
 
 //            spinnerLanguage.disableChangeTextWhenNotified = true
 //            powerSpinnerView.dismiss() // dismiss the spinner popup
+        }
+
+        mySpinnerView.disableChangeTextWhenNotified = false
+        spinnerLanguage.setOnSpinnerDismissListener {
+            mySpinnerView.dismiss()
         }
     }
 
@@ -144,38 +146,41 @@ class SettingFragment : Fragment() {
     private fun restartSelf() {
         LoadingBar.visible()
         Handler().postDelayed({
-            val am =
-                requireActivity().getSystemService(Context.ALARM_SERVICE) as AlarmManager
-            am[AlarmManager.RTC_WAKEUP, Calendar.getInstance().timeInMillis + 500] =
-                PendingIntent.getActivity(
-                    activity, 0, requireActivity().intent, PendingIntent.FLAG_ONE_SHOT
-                            or PendingIntent.FLAG_CANCEL_CURRENT
-                )
-            val i = requireActivity().baseContext.packageManager
-                .getLaunchIntentForPackage(requireActivity().baseContext.packageName)
-            i!!.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            startActivity(i)
+            val mStartActivity = Intent(context, MainActivity::class.java)
+            val mPendingIntentId = 123456
+            val mPendingIntent = PendingIntent.getActivity(
+                context,
+                mPendingIntentId,
+                mStartActivity,
+                PendingIntent.FLAG_CANCEL_CURRENT
+            )
+            val mgr = requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            mgr[AlarmManager.RTC, System.currentTimeMillis() + 100] = mPendingIntent
+
         }, 2000)
 
     }
 
     private fun exitFromApp() {
         cardExit.setOnClickListener {
-            val alertDialog: AlertDialog.Builder = AlertDialog.Builder(context, R.style.AlertDialogCustom)
-            alertDialog.setTitle("Confirm your action")
-            alertDialog.setMessage("Are you sure to exit this awesome application?")
+            val alertDialog: AlertDialog.Builder = AlertDialog.Builder(
+                context,
+                R.style.AlertDialogCustom
+            )
+            alertDialog.setTitle(getString(R.string.confirm_your_action))
+            alertDialog.setMessage(getString(R.string.confirm))
             alertDialog.setPositiveButton(
-                "Exit"
+                getString(R.string.exit)
             ) { _, _ ->
                 LoadingBar.visible()
                 Handler().postDelayed({
-                    android.os.Process.killProcess(android.os.Process.myPid())
+                    activity?.finishAffinity()
                     exitProcess(0)
                 }, 3000)
                 Toast.makeText(context, "Exiting", Toast.LENGTH_LONG).show()
             }
             alertDialog.setNegativeButton(
-                "Cancel"
+                getString(R.string.cancel)
             ) { _, _ -> }
             val alert: AlertDialog = alertDialog.create()
             alert.setCanceledOnTouchOutside(false)
