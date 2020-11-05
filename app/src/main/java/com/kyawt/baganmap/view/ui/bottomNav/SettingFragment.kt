@@ -71,6 +71,14 @@ class SettingFragment : Fragment() {
             )
         }
 
+        cardPreference.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_settingFragment_to_appPreferenceFragment,
+                null,
+                navOptions()
+            )
+        }
+
     }
 
     private fun navOptions() = NavOptions.Builder()

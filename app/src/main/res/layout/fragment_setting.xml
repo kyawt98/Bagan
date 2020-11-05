@@ -35,14 +35,29 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
+    <TextView
+        android:id="@+id/labelAppSetting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="App Settings"
+        android:textAllCaps="true"
+        android:textSize="12sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/cardAppBar"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardLanguage"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
         app:cardBackgroundColor="@color/darkColor"
         app:cardPreventCornerOverlap="false"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardAppBar">
+        app:layout_constraintTop_toBottomOf="@id/labelAppSetting">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -100,13 +115,76 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardPrivacy"
+        android:id="@+id/cardPreference"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_marginLeft="8dp"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         app:cardBackgroundColor="@color/darkColor"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardLanguage">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/icPreference"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="24dp"
+                android:src="@drawable/ic_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/colorAccent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="@string/app_theme"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/icPreference"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/breakLine"
+        android:layout_width="match_parent"
+        android:layout_height="0.4dp"
+        app:layout_constraintTop_toBottomOf="@id/cardPreference"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="8dp"
+        android:background="#56999C9C"/>
+
+    <TextView
+        android:id="@+id/labelAppInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="App Informations"
+        android:textAllCaps="true"
+        android:textSize="12sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/breakLine"
+        app:layout_constraintLeft_toLeftOf="@id/labelAppSetting"/>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardPrivacy"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        app:cardBackgroundColor="@color/darkColor"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelAppInfo">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -140,6 +218,7 @@
         android:id="@+id/cardAbout"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_marginLeft="8dp"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         app:cardBackgroundColor="@color/darkColor"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -177,6 +256,7 @@
         android:id="@+id/cardVersion"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_marginLeft="8dp"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         app:cardBackgroundColor="@color/darkColor"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -210,14 +290,26 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
+    <View
+        android:id="@+id/breakLine2"
+        android:layout_width="match_parent"
+        android:layout_height="0.4dp"
+        app:layout_constraintTop_toBottomOf="@id/cardVersion"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="8dp"
+        android:background="#56999C9C"/>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardExit"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         app:cardBackgroundColor="@color/darkColor"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardVersion">
+        app:layout_constraintTop_toBottomOf="@id/breakLine2">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
