@@ -2,6 +2,7 @@ package com.kyawt.baganmap.view.ui.bottomNav
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
@@ -12,6 +13,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.preference.PreferenceManager
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -20,13 +22,18 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.kyawt.baganmap.R
 import kotlinx.android.synthetic.main.fragment_contact.*
+import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
 
 class ContactFragment : Fragment(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private val REQUEST_LOCATION_PERMISSION = 1
+    private lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +41,7 @@ class ContactFragment : Fragment(), OnMapReadyCallback {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_contact, container, false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,6 +49,7 @@ class ContactFragment : Fragment(), OnMapReadyCallback {
         contactAction()
         setupGoogleMap()
         setupFacebookLink()
+        setupBackgroundColor()
     }
 
     private fun setupFacebookLink(){
@@ -176,6 +185,23 @@ class ContactFragment : Fragment(), OnMapReadyCallback {
                 enableMyLocation()
             }
         }
+    }
+
+    private fun setupBackgroundColor(){
+        layoutContact?.setBackgroundColor(
+            sharedPreferences.getInt(
+                getString(R.string.BackgroundColorPickerPreference),
+                ContextCompat.getColor(requireContext(), R.color.background)
+            )
+        )
+
+        cardContact?.setCardBackgroundColor(
+            sharedPreferences.getInt(
+                getString(R.string.BackgroundColorPickerPreference),
+                ContextCompat.getColor(requireContext(), R.color.background)
+            )
+        )
+
     }
 
 }

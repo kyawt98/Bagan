@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/layoutAbout"
     android:background="@color/darkColor"
     tools:context=".view.ui.bottomNav.AboutFragment">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/appBar"
+        android:id="@+id/appBarAbout"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:layout_constraintLeft_toLeftOf="parent"

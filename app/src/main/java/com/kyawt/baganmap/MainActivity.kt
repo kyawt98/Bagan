@@ -11,7 +11,7 @@ import com.kyawt.baganmap.view.exts.gone
 import com.kyawt.baganmap.view.exts.visible
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             supportActionBar?.hide()
 
-            if (destination.id == R.id.aboutFragment || destination.id == R.id.privacyFragment || destination.id == R.id.pagodaFragment || destination.id == R.id.hotelFragment || destination.id == R.id.appPreferenceFragment) {
+            if (destination.id == R.id.aboutFragment || destination.id == R.id.privacyFragment || destination.id == R.id.pagodaFragment || destination.id == R.id.hotelFragment ) {
                 bottomNav.gone()
             } else {
                 bottomNav.visible()

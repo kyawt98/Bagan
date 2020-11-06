@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/darkColor"
+    android:id="@+id/layoutContact"
     tools:context=".view.ui.bottomNav.ContactFragment">
 
     <androidx.cardview.widget.CardView
@@ -32,6 +33,7 @@
         android:layout_marginRight="16dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="8dp"
+        android:alpha="2"
         app:cardBackgroundColor="@color/darkLightColor"
         app:layout_constraintBottom_toBottomOf="@id/cardMap"
         app:layout_constraintEnd_toEndOf="parent"

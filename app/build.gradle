@@ -99,13 +99,14 @@ dependencies {
 // Jelly Toolbar
     implementation 'com.github.yalantis:jellytoolbar:v1.0'
 
-    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
 
 //    Spinner
     implementation "com.github.skydoves:powerspinner:1.1.5"
 
-    
+//    Color Picker
+    implementation "com.github.skydoves:colorpickerpreference:2.0.4"
 
 
 //    // Dagger

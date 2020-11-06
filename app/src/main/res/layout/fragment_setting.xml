@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/layoutSetting"
     android:background="@color/darkColor"
     tools:context=".view.ui.bottomNav.SettingFragment">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardAppBar"
+        android:id="@+id/cardAppBarSetting"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:cardBackgroundColor="@color/darkColor"
@@ -39,21 +40,20 @@
         android:id="@+id/labelAppSetting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="App Settings"
-        android:textAllCaps="true"
-        android:textSize="12sp"
-        android:textColor="@color/colorPrimaryDark"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/cardAppBar"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        android:text="App Settings"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardAppBarSetting" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardLanguage"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
         app:cardBackgroundColor="@color/darkColor"
         app:cardPreventCornerOverlap="false"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -67,7 +67,7 @@
                 android:id="@+id/icLanguage"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginLeft="24dp"
+                android:layout_marginLeft="32dp"
                 android:src="@drawable/ic_language"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -93,8 +93,8 @@
                 android:layout_marginRight="16dp"
                 android:background="@color/darkColor"
                 android:gravity="center"
-                android:padding="16dp"
                 android:hint="English"
+                android:padding="16dp"
                 android:textColor="@color/colorPrimary"
                 android:textColorHint="@color/colorPrimary"
                 android:textSize="14.5sp"
@@ -118,7 +118,6 @@
         android:id="@+id/cardPreference"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_marginLeft="8dp"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         app:cardBackgroundColor="@color/darkColor"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -132,7 +131,7 @@
                 android:id="@+id/icPreference"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginLeft="24dp"
+                android:layout_marginLeft="32dp"
                 android:src="@drawable/ic_color"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -156,23 +155,23 @@
         android:id="@+id/breakLine"
         android:layout_width="match_parent"
         android:layout_height="0.4dp"
-        app:layout_constraintTop_toBottomOf="@id/cardPreference"
+        android:layout_margin="8dp"
+        android:background="#56999C9C"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_margin="8dp"
-        android:background="#56999C9C"/>
+        app:layout_constraintTop_toBottomOf="@id/cardPreference" />
 
     <TextView
         android:id="@+id/labelAppInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="App Informations"
         android:textAllCaps="true"
-        android:textSize="12sp"
         android:textColor="@color/colorPrimaryDark"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/breakLine"
-        app:layout_constraintLeft_toLeftOf="@id/labelAppSetting"/>
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@id/labelAppSetting"
+        app:layout_constraintTop_toBottomOf="@id/breakLine" />
 
 
     <androidx.cardview.widget.CardView
@@ -180,7 +179,6 @@
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         app:cardBackgroundColor="@color/darkColor"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -194,7 +192,7 @@
                 android:id="@+id/icPrivacy"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginLeft="24dp"
+                android:layout_marginLeft="32dp"
                 android:src="@drawable/ic_shield"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -218,7 +216,6 @@
         android:id="@+id/cardAbout"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_marginLeft="8dp"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         app:cardBackgroundColor="@color/darkColor"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -232,7 +229,7 @@
                 android:id="@+id/icAbout"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginLeft="24dp"
+                android:layout_marginLeft="32dp"
                 android:src="@drawable/ic_round_info_button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -256,7 +253,6 @@
         android:id="@+id/cardVersion"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_marginLeft="8dp"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         app:cardBackgroundColor="@color/darkColor"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -270,7 +266,7 @@
                 android:id="@+id/icAndroid"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginLeft="24dp"
+                android:layout_marginLeft="32dp"
                 android:src="@drawable/ic_android"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -294,18 +290,17 @@
         android:id="@+id/breakLine2"
         android:layout_width="match_parent"
         android:layout_height="0.4dp"
-        app:layout_constraintTop_toBottomOf="@id/cardVersion"
+        android:layout_margin="8dp"
+        android:background="#56999C9C"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_margin="8dp"
-        android:background="#56999C9C"/>
+        app:layout_constraintTop_toBottomOf="@id/cardVersion" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardExit"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         app:cardBackgroundColor="@color/darkColor"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -319,7 +314,7 @@
                 android:id="@+id/icExit"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginLeft="28dp"
+                android:layout_marginLeft="33dp"
                 android:src="@drawable/ic_logout"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -339,30 +334,13 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardSpace"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        app:cardBackgroundColor="@color/darkColor"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardExit">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
     <ProgressBar
         android:id="@+id/LoadingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:elevation="10dp"
         android:indeterminateTint="@color/colorPrimary"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

@@ -4,22 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/transparent"
+    android:id="@+id/layoutHome"
+    android:background="@color/darkColor"
     tools:context=".view.ui.bottomNav.HomeFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardAppBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/darkColor"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/darkColor">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/icLogo"
@@ -39,7 +39,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:animateLayoutChanges="true"
-        android:background="@color/darkColor"
         android:fadeScrollbars="true"
         android:fitsSystemWindows="true"
         android:overScrollMode="always"
@@ -96,8 +95,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardTab"
                 android:layout_width="match_parent"
-                android:layout_height="520dp"
-                app:cardBackgroundColor="@color/darkColor"
+                android:layout_height="510dp"
+                app:cardBackgroundColor="@color/colorTransparent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cardHighLight">
 
@@ -110,7 +109,7 @@
                         android:id="@+id/tab_layout"
                         android:layout_width="match_parent"
                         android:layout_height="?attr/actionBarSize"
-                        android:background="@color/darkColor"
+                        android:background="@color/colorTransparent"
                         app:tabMaxWidth="0dp"
                         app:tabTextAppearance="?android:attr/textAppearanceMedium"
                         app:textAllCaps="false" />

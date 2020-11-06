@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/darkColor"
+    android:id="@+id/layoutPrivacy"
     tools:context=".view.ui.bottomNav.PrivacyFragment">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/appBar"
+        android:id="@+id/appBarPrivacy"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:layout_constraintLeft_toLeftOf="parent"

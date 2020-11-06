@@ -1,6 +1,7 @@
 package com.kyawt.baganmap.view.ui.bottomNav
 
 import android.animation.ObjectAnimator
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Build
@@ -10,23 +11,30 @@ import android.view.*
 import android.widget.Switch
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
+import androidx.preference.PreferenceManager
 import com.custom.sliderimage.logic.SliderImage
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.kyawt.baganmap.R
 import com.kyawt.baganmap.view.viewpager.TabsPagerAdapter
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
+import me.ibrahimsn.lib.SmoothBottomBar
 
 
 class HomeFragment : Fragment() {
+    private lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
     }
 
     override fun onCreateView(
@@ -43,6 +51,7 @@ class HomeFragment : Fragment() {
         setupTabs()
         setupImageSlider()
         scrollableLayout.scheduleLayoutAnimation()
+        setupBackgroundColor()
     }
 
     private fun setupTabs() {
@@ -95,7 +104,39 @@ class HomeFragment : Fragment() {
         slider.getIndicator()
     }
 
+    private fun setupBackgroundColor(){
+        layoutHome?.setBackgroundColor(
+            sharedPreferences.getInt(
+                getString(R.string.BackgroundColorPickerPreference),
+                ContextCompat.getColor(requireContext(), R.color.background)
+            )
+        )
+
+        cardAppBar?.setCardBackgroundColor(
+            sharedPreferences.getInt(
+                getString(R.string.BackgroundColorPickerPreference),
+                ContextCompat.getColor(requireContext(), R.color.background)
+            )
+        )
+        tab_layout?.setBackgroundColor(
+            sharedPreferences.getInt(
+                getString(R.string.BackgroundColorPickerPreference),
+                ContextCompat.getColor(requireContext(), R.color.background)
+            )
+        )
+
+        bottomNav?.setBackgroundColor(
+            sharedPreferences.getInt(
+                getString(R.string.BackgroundColorPickerPreference),
+                ContextCompat.getColor(requireContext(), R.color.background)
+            )
+        )
+
+    }
+
 }
+
+
 
 private fun navOptions() = NavOptions.Builder()
     .setEnterAnim(R.anim.nav_default_enter_anim)

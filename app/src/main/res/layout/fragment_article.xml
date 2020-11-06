@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/darkColor"
+    android:id="@+id/layoutArticle"
     tools:context=".view.ui.bottomNav.ArticleFragment">
 
     <androidx.recyclerview.widget.RecyclerView

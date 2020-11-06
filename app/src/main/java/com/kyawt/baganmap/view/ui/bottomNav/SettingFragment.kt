@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
@@ -18,12 +19,15 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
+import androidx.preference.PreferenceManager
 import com.kyawt.baganmap.MainActivity
 import com.kyawt.baganmap.R
 import com.kyawt.baganmap.view.exts.visible
 import com.skydoves.powerspinner.SpinnerAnimation
 import com.skydoves.powerspinner.SpinnerGravity
 import com.skydoves.powerspinner.createPowerSpinnerView
+import kotlinx.android.synthetic.main.fragment_contact.*
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_setting.*
 import java.util.*
 import kotlin.system.exitProcess
@@ -33,10 +37,11 @@ class SettingFragment : Fragment() {
     lateinit var locale: Locale
     private var currentLanguage = "en"
     private var currentLang: String? = null
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
     }
 
     override fun onCreateView(
@@ -53,6 +58,7 @@ class SettingFragment : Fragment() {
         setupLanguage()
         onPressedCards()
         exitFromApp()
+        setupBackgroundColor()
     }
 
     private fun onPressedCards() {
@@ -73,7 +79,7 @@ class SettingFragment : Fragment() {
 
         cardPreference.setOnClickListener {
             findNavController().navigate(
-                R.id.action_settingFragment_to_appPreferenceFragment,
+                R.id.action_settingFragment_to_preferenceFragment,
                 null,
                 navOptions()
             )
@@ -195,6 +201,65 @@ class SettingFragment : Fragment() {
             alert.show()
 
         }
+    }
+
+    private fun setupBackgroundColor(){
+        layoutSetting?.setBackgroundColor(
+            sharedPreferences.getInt(
+                getString(R.string.BackgroundColorPickerPreference),
+                ContextCompat.getColor(requireContext(), R.color.background)
+            )
+        )
+
+        cardAppBarSetting?.setCardBackgroundColor(
+            sharedPreferences.getInt(
+                getString(R.string.BackgroundColorPickerPreference),
+                ContextCompat.getColor(requireContext(), R.color.background)
+            )
+        )
+        cardLanguage?.setCardBackgroundColor(
+            sharedPreferences.getInt(
+                getString(R.string.BackgroundColorPickerPreference),
+                ContextCompat.getColor(requireContext(), R.color.background)
+            )
+        )
+        spinnerLanguage?.setBackgroundColor(
+            sharedPreferences.getInt(
+                getString(R.string.BackgroundColorPickerPreference),
+                ContextCompat.getColor(requireContext(), R.color.background)
+            )
+        )
+        cardPreference?.setCardBackgroundColor(
+            sharedPreferences.getInt(
+                getString(R.string.BackgroundColorPickerPreference),
+                ContextCompat.getColor(requireContext(), R.color.background)
+            )
+        )
+        cardPrivacy?.setCardBackgroundColor(
+            sharedPreferences.getInt(
+                getString(R.string.BackgroundColorPickerPreference),
+                ContextCompat.getColor(requireContext(), R.color.background)
+            )
+        )
+        cardAbout?.setCardBackgroundColor(
+            sharedPreferences.getInt(
+                getString(R.string.BackgroundColorPickerPreference),
+                ContextCompat.getColor(requireContext(), R.color.background)
+            )
+        )
+        cardVersion?.setCardBackgroundColor(
+                sharedPreferences.getInt(
+                    getString(R.string.BackgroundColorPickerPreference),
+                    ContextCompat.getColor(requireContext(), R.color.background)
+                )
+                )
+
+        cardExit?.setCardBackgroundColor(
+            sharedPreferences.getInt(
+                getString(R.string.BackgroundColorPickerPreference),
+                ContextCompat.getColor(requireContext(), R.color.background)
+            )
+        )
     }
 
 }
