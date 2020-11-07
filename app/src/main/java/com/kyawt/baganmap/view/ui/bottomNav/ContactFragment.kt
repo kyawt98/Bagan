@@ -13,6 +13,8 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -46,6 +48,7 @@ class ContactFragment : Fragment(), OnMapReadyCallback {
         contactAction()
         setupGoogleMap()
         setupFacebookLink()
+        setupFeedbackForm()
     }
 
     private fun setupFacebookLink(){
@@ -160,7 +163,7 @@ class ContactFragment : Fragment(), OnMapReadyCallback {
                 // for ActivityCompat#requestPermissions for more details.
                 return
             }
-            mMap.setMyLocationEnabled(true)
+            mMap.isMyLocationEnabled = true
         }
         else {
             ActivityCompat.requestPermissions(
@@ -183,4 +186,16 @@ class ContactFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
+    private fun setupFeedbackForm(){
+        fabFeedback.setOnClickListener {
+            findNavController().navigate(R.id.action_contactFragment_to_feedbackFragment,null,navOptions())
+        }
+    }
+
+    private fun navOptions() = NavOptions.Builder()
+        .setEnterAnim(R.anim.nav_default_enter_anim)
+        .setExitAnim(R.anim.nav_default_exit_anim)
+        .setPopEnterAnim(R.anim.nav_default_pop_enter_anim)
+        .setPopExitAnim(R.anim.nav_default_pop_exit_anim)
+        .build()
 }

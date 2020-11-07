@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         navController.addOnDestinationChangedListener { _, destination, _ ->
             supportActionBar?.hide()
 
-            if (destination.id == R.id.aboutFragment || destination.id == R.id.privacyFragment || destination.id == R.id.pagodaFragment || destination.id == R.id.hotelFragment) {
+            if (destination.id == R.id.aboutFragment || destination.id == R.id.privacyFragment || destination.id == R.id.pagodaFragment || destination.id == R.id.hotelFragment || destination.id == R.id.feedbackFragment) {
                 bottomNav.gone()
             } else {
                 bottomNav.visible()
