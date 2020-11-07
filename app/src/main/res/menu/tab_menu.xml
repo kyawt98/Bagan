@@ -2,7 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/pagodaFragment"
         android:title="@string/pagodas"
-        android:icon="@drawable/ic_phone"
         android:checked="true"
         android:iconTint="@color/colorAccent"/>
 

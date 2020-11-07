@@ -3,6 +3,8 @@ package com.kyawt.baganmap.view.ui.bottomNav
 import android.animation.ObjectAnimator
 import android.content.SharedPreferences
 import android.graphics.Color
+import android.graphics.Color.CYAN
+import android.graphics.Color.WHITE
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
@@ -55,9 +57,10 @@ class HomeFragment : Fragment() {
 
     private fun setupTabs() {
         // Tabs Customization
-        tab_layout.setSelectedTabIndicatorColor(Color.WHITE)
+        tab_layout.setSelectedTabIndicatorColor(CYAN)
         tab_layout.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.darkColor))
-        tab_layout.tabTextColors = ContextCompat.getColorStateList(requireContext(), android.R.color.white)
+//        tab_layout.tabTextColors = ContextCompat.getColorStateList(requireContext(), R.color.colorPrimary)
+        tab_layout.setTabTextColors(WHITE, CYAN)
         val numberOfTabs = 2
         tab_layout.tabMode = TabLayout.MODE_FIXED
         tab_layout.tabMode = TabLayout.MODE_FIXED

@@ -76,6 +76,9 @@ class SettingFragment(
             )
         }
 
+        cardVersion.setOnClickListener {
+        }
+
     }
 
     private fun navOptions() = NavOptions.Builder()
@@ -156,11 +159,6 @@ class SettingFragment(
         restartSelf()
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-
-    }
-
     private fun restartSelf() {
         LoadingBar.visible()
         Handler().postDelayed({
@@ -203,9 +201,6 @@ class SettingFragment(
             val alert: AlertDialog = alertDialog.create()
             alert.setCanceledOnTouchOutside(false)
             alert.show()
-
         }
     }
-
 }
-

@@ -6,70 +6,224 @@
     android:layout_height="match_parent"
     tools:context=".view.ui.home.hotel.HotelFragment">
 
-
-    <com.yalantis.jellytoolbar.widget.JellyToolbar
-        android:id="@+id/toolBar"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="@color/colorTransparent"
-        app:cancelIcon="@drawable/ic_close"
-        app:endColor="#535A5A"
-        app:icon="@drawable/ic_search"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startColor="#1A1B1B"
-        app:titleTextColor="@android:color/white" />
-
-    <TextView
-        android:id="@+id/totalFound"
-        android:layout_width="wrap_content"
+    <com.skydoves.indicatorscrollview.IndicatorScrollView
+        android:id="@+id/indicatorScrollView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/total_found"
-        android:textColor="@color/colorAccent"
-        android:textSize="14sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolBar" />
-
-    <TextView
-        android:id="@+id/totalFoundResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:text="100"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="14sp"
-        app:layout_constraintLeft_toRightOf="@id/totalFound"
-        app:layout_constraintTop_toBottomOf="@+id/toolBar" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerHotel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/totalFound" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ProgressBar
-        android:id="@+id/LoadingBar"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.skydoves.indicatorscrollview.IndicatorView
+                android:id="@+id/indicatorView"
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:background="@color/darkColor"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                app:indicator_expandingAllItemRatio="1.0"
+                app:indicator_expandingRatio="0.2"
+                app:indicator_itemPadding="6dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!--            <com.yalantis.jellytoolbar.widget.JellyToolbar-->
+                <!--                android:id="@+id/toolBar"-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="70dp"-->
+                <!--                android:background="@color/colorTransparent"-->
+                <!--                app:cancelIcon="@drawable/ic_close"-->
+                <!--                app:endColor="#535A5A"-->
+                <!--                app:icon="@drawable/ic_search"-->
+                <!--                app:layout_constraintLeft_toLeftOf="parent"-->
+                <!--                app:layout_constraintTop_toTopOf="parent"-->
+                <!--                app:startColor="#1A1B1B"-->
+                <!--                app:titleTextColor="@android:color/white" />-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/totalFound"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/total_found"
+                        android:textColor="@color/white_56"
+                        android:textSize="14sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/toolBar" />
+
+                    <TextView
+                        android:id="@+id/totalFoundResult"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="100"
+                        android:textColor="@color/white_56"
+                        android:textSize="14sp"
+                        app:layout_constraintLeft_toRightOf="@id/totalFound"
+                        app:layout_constraintTop_toBottomOf="@+id/toolBar" />
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/topStarLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardTopStar"
+                        android:layout_width="0dp"
+                        android:layout_height="250dp"
+                        android:padding="16dp"
+                        app:cardElevation="8dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/txtTopStarTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginTop="8dp"
+                                android:text="Top star Hotels"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerTopStarHotel"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintLeft_toLeftOf="@id/txtTopStarTitle"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/txtTopStarTitle" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/popularLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/topStarLayout">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardPopularHotel"
+                        android:layout_width="0dp"
+                        android:layout_height="250dp"
+                        android:layout_marginTop="8dp"
+                        android:padding="16dp"
+                        app:cardElevation="8dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/txtTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginTop="8dp"
+                                android:text="Popular Hotels"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerPopularHotel"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintLeft_toLeftOf="@id/txtTitle"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/txtTitle" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/topAttractionLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/topStarLayout">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardTopAttraction"
+                        android:layout_width="0dp"
+                        android:layout_height="250dp"
+                        android:layout_marginTop="8dp"
+                        android:padding="16dp"
+                        app:cardElevation="8dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/txtTopAttractionTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginTop="8dp"
+                                android:text="Top Attrations in Bagan"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerTopAttractionHotel"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintLeft_toLeftOf="@id/txtTopAttractionTitle"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/txtTopAttractionTitle" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </com.skydoves.indicatorscrollview.IndicatorScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:fitsSystemWindows="true"
+        android:src="@drawable/ic_map"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintRight_toRightOf="parent" />
 
-    <TextView
-        android:id="@+id/txtError"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="No Data Found!!"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

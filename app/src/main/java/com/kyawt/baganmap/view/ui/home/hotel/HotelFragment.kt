@@ -13,13 +13,16 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.kyawt.baganmap.R
+import com.skydoves.indicatorscrollview.IndicatorAnimation
+import com.skydoves.indicatorscrollview.IndicatorItem
+import com.skydoves.indicatorscrollview.indicatorItem
 import com.yalantis.jellytoolbar.listener.JellyListener
 import com.yalantis.jellytoolbar.widget.JellyToolbar
 import kotlinx.android.synthetic.main.edit_text.*
 import kotlinx.android.synthetic.main.fragment_hotel.*
 
 class HotelFragment : Fragment() {
-    private var TEXT_KEY : String = "";
+    private var TEXT_KEY: String = "";
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -35,8 +38,39 @@ class HotelFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 //        onBackPressed()
+        addIndicator()
         setupToolbar()
+    }
 
+    private fun addIndicator() {
+        indicatorScrollView.bindIndicatorView(indicatorView)
+//        indicatorView.addIndicatorItem(
+//            IndicatorItem.Builder(topStarLayout)
+//                .setItemColorResource(R.color.colorPrimaryDark)
+//                .setIndicatorAnimation(IndicatorAnimation.BOUNCE)
+//                .setItemCornerRadius(30f)
+//                .build()
+//        )
+
+        indicatorView + indicatorItem(topStarLayout) {
+            setItemColorResource(R.color.colorPrimary)
+            setIndicatorAnimation(IndicatorAnimation.ACCELERATE)
+            setItemCornerRadius(30f)
+        }
+
+        indicatorView + IndicatorItem.Builder(popularLayout)
+            .setItemColorResource(R.color.cherry)
+            .setIndicatorAnimation(IndicatorAnimation.ACCELERATE)
+            .setItemCornerRadius(30f)
+            .build()
+
+        indicatorView.addIndicatorItem(
+            IndicatorItem.Builder(topAttractionLayout)
+                .setItemColorResource(R.color.colorAccent)
+                .setIndicatorAnimation(IndicatorAnimation.ACCELERATE)
+                .setItemCornerRadius(30f)
+                .build()
+        )
     }
 
     private fun setupRecycler() {
@@ -47,19 +81,20 @@ class HotelFragment : Fragment() {
 
     @SuppressLint("InflateParams")
     private fun setupToolbar() {
-        toolBar.jellyListener = object : JellyListener() {
-            override fun onCancelIconClicked() {
-                if (TextUtils.isEmpty(etSearch?.text)) {
-                    toolBar.collapse()
-                } else {
-                    etSearch?.text?.clear()
-                }
-            }
-        }
-        toolBar.toolbar?.setPadding(0, getStatusBarHeight(), 0, 0)
-        val etd = LayoutInflater.from(context).inflate(R.layout.edit_text, null) as AppCompatEditText
-        etd.setBackgroundResource(R.color.colorTransparent)
-        toolBar.contentView = etd
+//        toolBar.jellyListener = object : JellyListener() {
+//            override fun onCancelIconClicked() {
+//                if (TextUtils.isEmpty(etSearch?.text)) {
+//                    toolBar.collapse()
+//                } else {
+//                    etSearch?.text?.clear()
+//                }
+//            }
+//        }
+//        toolBar.toolbar?.setPadding(0, getStatusBarHeight(), 0, 0)
+//        val etd =
+//            LayoutInflater.from(context).inflate(R.layout.edit_text, null) as AppCompatEditText
+//        etd.setBackgroundResource(R.color.colorTransparent)
+//        toolBar.contentView = etd
     }
 
     private fun getStatusBarHeight(): Int {
@@ -71,10 +106,10 @@ class HotelFragment : Fragment() {
         return result
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        outState.putString(TEXT_KEY, etSearch.text.toString())
-        super.onSaveInstanceState(outState)
-    }
+//    override fun onSaveInstanceState(outState: Bundle) {
+//        outState.putString(TEXT_KEY, etSearch.text.toString())
+//        super.onSaveInstanceState(outState)
+//    }
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
