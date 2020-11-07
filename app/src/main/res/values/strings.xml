@@ -24,6 +24,7 @@
     <string name="confirm_your_action">Confirm your action</string>
     <string name="confirm">Are you sure to exit this awesome application?</string>
     <string name="cancel">Cancel</string>
+    <string name="find_near_hotels">Find near hotels</string>
     <string-array name="languages">
         <item>English</item>
         <item>မြန်မာ</item>
