@@ -13,12 +13,8 @@ import com.kyawt.baganmap.R
 import kotlinx.android.synthetic.main.fragment_article.*
 
 class ArticleFragment : Fragment() {
-    private lateinit var sharedPreferences: SharedPreferences
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-
     }
 
     override fun onCreateView(
@@ -32,22 +28,9 @@ class ArticleFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupBackgroundColor()
     }
 
     private fun setupRecycler() {
 
     }
-
-    private fun setupBackgroundColor() {
-        layoutArticle?.setBackgroundColor(
-            sharedPreferences.getInt(
-                getString(R.string.BackgroundColorPickerPreference),
-                ContextCompat.getColor(requireContext(), R.color.background)
-            )
-        )
-
-    }
-
-
 }

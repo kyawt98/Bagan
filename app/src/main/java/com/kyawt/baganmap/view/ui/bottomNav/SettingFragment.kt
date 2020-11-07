@@ -1,20 +1,20 @@
 package com.kyawt.baganmap.view.ui.bottomNav
 
+import android.app.Activity
 import android.app.AlarmManager
 import android.app.AlertDialog
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
-import android.os.Process
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.app.ActivityCompat.finishAffinity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
@@ -26,17 +26,17 @@ import com.kyawt.baganmap.view.exts.visible
 import com.skydoves.powerspinner.SpinnerAnimation
 import com.skydoves.powerspinner.SpinnerGravity
 import com.skydoves.powerspinner.createPowerSpinnerView
-import kotlinx.android.synthetic.main.fragment_contact.*
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_setting.*
 import java.util.*
 import kotlin.system.exitProcess
 
 
-class SettingFragment : Fragment() {
+class SettingFragment(
+) : Fragment() {
     lateinit var locale: Locale
     private var currentLanguage = "en"
     private var currentLang: String? = null
+
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,7 +58,6 @@ class SettingFragment : Fragment() {
         setupLanguage()
         onPressedCards()
         exitFromApp()
-        setupBackgroundColor()
     }
 
     private fun onPressedCards() {
@@ -72,14 +71,6 @@ class SettingFragment : Fragment() {
         cardPrivacy.setOnClickListener {
             findNavController().navigate(
                 R.id.action_settingFragment_to_privacyFragment,
-                null,
-                navOptions()
-            )
-        }
-
-        cardPreference.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_settingFragment_to_preferenceFragment,
                 null,
                 navOptions()
             )
@@ -114,27 +105,33 @@ class SettingFragment : Fragment() {
                 powerSpinnerView.show() // show the spinner popup
                 spinnerLanguage.lifecycleOwner = this@SettingFragment
                 when (index) {
-                    0 -> setLocale("en")
-                    1 -> setLocale("mm")
+                    0 -> {
+                        setLocale("en")
+                        saveLocale("en")
+                    }
+                    1 -> {
+                        setLocale("mm")
+                        saveLocale("mm")
+                    }
                 }
             }
-//            powerSpinnerView.dismissWhenNotifiedItemSelected = true
-//            powerSpinnerView.showOrDismiss()
-//
-//
-//            spinnerLanguage.setOnSpinnerDismissListener {
-//                powerSpinnerView.dismiss()
-//                powerSpinnerView.showOrDismiss()
-//            }
-
-//            spinnerLanguage.disableChangeTextWhenNotified = true
-//            powerSpinnerView.dismiss() // dismiss the spinner popup
         }
 
         mySpinnerView.disableChangeTextWhenNotified = false
         spinnerLanguage.setOnSpinnerDismissListener {
             mySpinnerView.dismiss()
         }
+    }
+
+    private fun saveLocale(lang: String?) {
+        val langPref = "Language"
+        val prefs: SharedPreferences = requireContext().getSharedPreferences(
+            "CommonPrefs",
+            Activity.MODE_PRIVATE
+        )
+        val editor = prefs.edit()
+        editor.putString(langPref, lang)
+        editor.apply()
     }
 
     private fun setLocale(localeName: String) {
@@ -145,6 +142,7 @@ class SettingFragment : Fragment() {
             val conf = res.configuration
             conf.locale = locale
             res.updateConfiguration(conf, dm)
+//            saveLocale(localeName)
 
         } else {
             locale = Locale(currentLanguage)
@@ -153,8 +151,14 @@ class SettingFragment : Fragment() {
             val conf = res.configuration
             conf.locale = locale
             res.updateConfiguration(conf, dm)
+//            saveLocale(localeName)
         }
         restartSelf()
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+
     }
 
     private fun restartSelf() {
@@ -201,65 +205,6 @@ class SettingFragment : Fragment() {
             alert.show()
 
         }
-    }
-
-    private fun setupBackgroundColor(){
-        layoutSetting?.setBackgroundColor(
-            sharedPreferences.getInt(
-                getString(R.string.BackgroundColorPickerPreference),
-                ContextCompat.getColor(requireContext(), R.color.background)
-            )
-        )
-
-        cardAppBarSetting?.setCardBackgroundColor(
-            sharedPreferences.getInt(
-                getString(R.string.BackgroundColorPickerPreference),
-                ContextCompat.getColor(requireContext(), R.color.background)
-            )
-        )
-        cardLanguage?.setCardBackgroundColor(
-            sharedPreferences.getInt(
-                getString(R.string.BackgroundColorPickerPreference),
-                ContextCompat.getColor(requireContext(), R.color.background)
-            )
-        )
-        spinnerLanguage?.setBackgroundColor(
-            sharedPreferences.getInt(
-                getString(R.string.BackgroundColorPickerPreference),
-                ContextCompat.getColor(requireContext(), R.color.background)
-            )
-        )
-        cardPreference?.setCardBackgroundColor(
-            sharedPreferences.getInt(
-                getString(R.string.BackgroundColorPickerPreference),
-                ContextCompat.getColor(requireContext(), R.color.background)
-            )
-        )
-        cardPrivacy?.setCardBackgroundColor(
-            sharedPreferences.getInt(
-                getString(R.string.BackgroundColorPickerPreference),
-                ContextCompat.getColor(requireContext(), R.color.background)
-            )
-        )
-        cardAbout?.setCardBackgroundColor(
-            sharedPreferences.getInt(
-                getString(R.string.BackgroundColorPickerPreference),
-                ContextCompat.getColor(requireContext(), R.color.background)
-            )
-        )
-        cardVersion?.setCardBackgroundColor(
-                sharedPreferences.getInt(
-                    getString(R.string.BackgroundColorPickerPreference),
-                    ContextCompat.getColor(requireContext(), R.color.background)
-                )
-                )
-
-        cardExit?.setCardBackgroundColor(
-            sharedPreferences.getInt(
-                getString(R.string.BackgroundColorPickerPreference),
-                ContextCompat.getColor(requireContext(), R.color.background)
-            )
-        )
     }
 
 }

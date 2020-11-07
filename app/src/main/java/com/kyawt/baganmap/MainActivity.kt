@@ -1,20 +1,35 @@
 package com.kyawt.baganmap
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
-import android.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.preference.PreferenceManager
 import com.kyawt.baganmap.view.exts.gone
 import com.kyawt.baganmap.view.exts.visible
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
-class MainActivity : BaseActivity() {
+class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeListener {
     private lateinit var navController: NavController
+    private var sharedPreferences: SharedPreferences? = null
+    private var currentLang:String =""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val shp = getSharedPreferences(
+            "CommonPrefs", MODE_PRIVATE
+        )
+        val language = shp.getString("Language", "en")
+        val locale = Locale(language)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.locale = locale
+        resources.updateConfiguration(config, resources.displayMetrics)
         setContentView(R.layout.activity_main)
         setupNavigation()
     }
@@ -25,7 +40,7 @@ class MainActivity : BaseActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             supportActionBar?.hide()
 
-            if (destination.id == R.id.aboutFragment || destination.id == R.id.privacyFragment || destination.id == R.id.pagodaFragment || destination.id == R.id.hotelFragment ) {
+            if (destination.id == R.id.aboutFragment || destination.id == R.id.privacyFragment || destination.id == R.id.pagodaFragment || destination.id == R.id.hotelFragment) {
                 bottomNav.gone()
             } else {
                 bottomNav.visible()
@@ -45,5 +60,7 @@ class MainActivity : BaseActivity() {
         return true
     }
 
-
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+        TODO("Not yet implemented")
+    }
 }

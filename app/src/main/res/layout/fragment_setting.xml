@@ -114,43 +114,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardPreference"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        app:cardBackgroundColor="@color/darkColor"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardLanguage">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/icPreference"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="32dp"
-                android:src="@drawable/ic_color"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/colorAccent" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:text="@string/app_theme"
-                android:textColor="@color/colorAccent"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/icPreference"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
     <View
         android:id="@+id/breakLine"
         android:layout_width="match_parent"
@@ -159,7 +122,7 @@
         android:background="#56999C9C"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardPreference" />
+        app:layout_constraintTop_toBottomOf="@id/cardLanguage" />
 
     <TextView
         android:id="@+id/labelAppInfo"

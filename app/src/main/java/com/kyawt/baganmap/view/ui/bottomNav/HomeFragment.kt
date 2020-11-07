@@ -31,7 +31,6 @@ import me.ibrahimsn.lib.SmoothBottomBar
 
 class HomeFragment : Fragment() {
     private lateinit var sharedPreferences: SharedPreferences
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
@@ -43,6 +42,7 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
+
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -51,7 +51,6 @@ class HomeFragment : Fragment() {
         setupTabs()
         setupImageSlider()
         scrollableLayout.scheduleLayoutAnimation()
-        setupBackgroundColor()
     }
 
     private fun setupTabs() {
@@ -104,39 +103,7 @@ class HomeFragment : Fragment() {
         slider.getIndicator()
     }
 
-    private fun setupBackgroundColor(){
-        layoutHome?.setBackgroundColor(
-            sharedPreferences.getInt(
-                getString(R.string.BackgroundColorPickerPreference),
-                ContextCompat.getColor(requireContext(), R.color.background)
-            )
-        )
-
-        cardAppBar?.setCardBackgroundColor(
-            sharedPreferences.getInt(
-                getString(R.string.BackgroundColorPickerPreference),
-                ContextCompat.getColor(requireContext(), R.color.background)
-            )
-        )
-        tab_layout?.setBackgroundColor(
-            sharedPreferences.getInt(
-                getString(R.string.BackgroundColorPickerPreference),
-                ContextCompat.getColor(requireContext(), R.color.background)
-            )
-        )
-
-        bottomNav?.setBackgroundColor(
-            sharedPreferences.getInt(
-                getString(R.string.BackgroundColorPickerPreference),
-                ContextCompat.getColor(requireContext(), R.color.background)
-            )
-        )
-
-    }
-
 }
-
-
 
 private fun navOptions() = NavOptions.Builder()
     .setEnterAnim(R.anim.nav_default_enter_anim)

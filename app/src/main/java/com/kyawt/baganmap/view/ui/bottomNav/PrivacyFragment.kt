@@ -18,10 +18,8 @@ import kotlinx.android.synthetic.main.fragment_setting.*
 import kotlinx.android.synthetic.main.fragment_setting.layoutSetting
 
 class PrivacyFragment : Fragment() {
-    private lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
     }
 
     override fun onCreateView(
@@ -36,7 +34,6 @@ class PrivacyFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         onBackPressed()
-        setupBackgroundColor()
     }
 
     private fun onBackPressed() {
@@ -55,20 +52,4 @@ class PrivacyFragment : Fragment() {
         .setPopEnterAnim(R.anim.nav_default_pop_enter_anim)
         .setPopExitAnim(R.anim.nav_default_pop_exit_anim)
         .build()
-
-    private fun setupBackgroundColor(){
-        layoutPrivacy?.setBackgroundColor(
-            sharedPreferences.getInt(
-                getString(R.string.BackgroundColorPickerPreference),
-                ContextCompat.getColor(requireContext(), R.color.background)
-            )
-        )
-
-        appBarPrivacy?.setCardBackgroundColor(
-            sharedPreferences.getInt(
-                getString(R.string.BackgroundColorPickerPreference),
-                ContextCompat.getColor(requireContext(), R.color.background)
-            )
-        )
-    }
 }

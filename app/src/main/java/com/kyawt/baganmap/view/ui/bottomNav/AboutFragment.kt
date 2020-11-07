@@ -16,10 +16,8 @@ import kotlinx.android.synthetic.main.fragment_about.icBack
 import kotlinx.android.synthetic.main.fragment_privacy.*
 
 class AboutFragment : Fragment() {
-    private lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
     }
 
     override fun onCreateView(
@@ -33,7 +31,6 @@ class AboutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         onBackPressed()
-        setupBackgroundColor()
     }
 
     private fun onBackPressed() {
@@ -44,22 +41,6 @@ class AboutFragment : Fragment() {
                 navOptions()
             )
         }
-    }
-
-    private fun setupBackgroundColor(){
-        layoutAbout?.setBackgroundColor(
-            sharedPreferences.getInt(
-                getString(R.string.BackgroundColorPickerPreference),
-                ContextCompat.getColor(requireContext(), R.color.background)
-            )
-        )
-
-        appBarAbout?.setCardBackgroundColor(
-            sharedPreferences.getInt(
-                getString(R.string.BackgroundColorPickerPreference),
-                ContextCompat.getColor(requireContext(), R.color.background)
-            )
-        )
     }
 
     private fun navOptions() = NavOptions.Builder()

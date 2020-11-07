@@ -33,9 +33,6 @@
         <action
             android:id="@+id/action_settingFragment_to_privacyFragment"
             app:destination="@id/privacyFragment" />
-        <action
-            android:id="@+id/action_settingFragment_to_preferenceFragment"
-            app:destination="@id/preferenceFragment" />
     </fragment>
     <fragment
         android:id="@+id/articleFragment"
@@ -78,8 +75,4 @@
             android:id="@+id/action_hotelFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/preferenceFragment"
-        android:name="com.kyawt.baganmap.view.ui.bottomNav.PreferenceFragment"
-        android:label="PreferenceFragment" />
 </navigation>

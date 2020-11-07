@@ -28,12 +28,9 @@ import java.util.*
 class ContactFragment : Fragment(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private val REQUEST_LOCATION_PERMISSION = 1
-    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,7 +46,6 @@ class ContactFragment : Fragment(), OnMapReadyCallback {
         contactAction()
         setupGoogleMap()
         setupFacebookLink()
-        setupBackgroundColor()
     }
 
     private fun setupFacebookLink(){
@@ -185,23 +181,6 @@ class ContactFragment : Fragment(), OnMapReadyCallback {
                 enableMyLocation()
             }
         }
-    }
-
-    private fun setupBackgroundColor(){
-        layoutContact?.setBackgroundColor(
-            sharedPreferences.getInt(
-                getString(R.string.BackgroundColorPickerPreference),
-                ContextCompat.getColor(requireContext(), R.color.background)
-            )
-        )
-
-        cardContact?.setCardBackgroundColor(
-            sharedPreferences.getInt(
-                getString(R.string.BackgroundColorPickerPreference),
-                ContextCompat.getColor(requireContext(), R.color.background)
-            )
-        )
-
     }
 
 }
