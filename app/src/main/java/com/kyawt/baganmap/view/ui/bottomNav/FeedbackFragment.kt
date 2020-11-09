@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.kyawt.baganmap.R
@@ -27,13 +28,55 @@ class FeedbackFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         onBackPressed()
+        actionFeedback()
     }
 
-    private fun onBackPressed(){
+    private fun onBackPressed() {
         icBack.setOnClickListener {
-            findNavController().navigate(R.id.action_feedbackFragment_to_contactFragment, null, navOptions())
+            findNavController().navigate(
+                R.id.action_feedbackFragment_to_contactFragment,
+                null,
+                navOptions()
+            )
         }
     }
+
+    private fun actionFeedback() {
+        btnSend.setOnClickListener {
+            val username = etUsername.text.toString()
+            val email = etEmail.text.toString()
+            val phone = etPhone.text.toString()
+            val address = etAddress.text.toString()
+            val message = etDescription.text.toString()
+
+            when {
+                username.isEmpty() -> {
+                    etUsername.error = "Required"
+                }
+                email.isEmpty() -> {
+                    etEmail.error = "Required"
+                }
+                phone.isEmpty() -> {
+                    etPhone.error = "Required"
+                }
+                address.isEmpty() -> {
+                    etAddress.error = "Required"
+                }
+                message.isEmpty() -> {
+                    etDescription.error = "Required"
+                }
+                else -> {
+                    Toast.makeText(context, "Successfully Sent ", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(
+                        R.id.action_feedbackFragment_to_contactFragment,
+                        null,
+                        navOptions()
+                    )
+                }
+            }
+        }
+    }
+
     private fun navOptions() = NavOptions.Builder()
         .setEnterAnim(R.anim.nav_default_enter_anim)
         .setExitAnim(R.anim.nav_default_exit_anim)

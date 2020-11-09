@@ -1,33 +1,22 @@
 package com.kyawt.baganmap.view.ui.home.hotel
-
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.kyawt.baganmap.R
+import com.skydoves.indicatorscrollview.IndicatorAnimation
+import com.skydoves.indicatorscrollview.IndicatorItem
+import com.skydoves.indicatorscrollview.indicatorItem
+import kotlinx.android.synthetic.main.fragment_hotel.*
+import kotlinx.android.synthetic.main.fragment_hotel.indicatorView
+import kotlinx.android.synthetic.main.fragment_hotel.popularLayout
+import kotlinx.android.synthetic.main.fragment_hotel_detail.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HotelDetailFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HotelDetailFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
@@ -38,23 +27,56 @@ class HotelDetailFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_hotel_detail, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HotelDetailFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HotelDetailFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        addIndicator()
     }
+
+    private fun addIndicator() {
+        scrollableLayout.bindIndicatorView(indicatorViewDetail)
+        indicatorViewDetail + indicatorItem(topStarLayout) {
+            setItemColorResource(R.color.colorPrimary)
+            setIndicatorAnimation(IndicatorAnimation.ACCELERATE)
+            setItemCornerRadius(30f)
+        }
+
+        indicatorViewDetail + IndicatorItem.Builder(recyclerHotelImg)
+            .setItemColorResource(R.color.cherry)
+            .setIndicatorAnimation(IndicatorAnimation.ACCELERATE)
+            .setItemCornerRadius(30f)
+            .build()
+
+        indicatorViewDetail.addIndicatorItem(
+            IndicatorItem.Builder(cardHotelName)
+                .setItemColorResource(R.color.colorAccent)
+                .setIndicatorAnimation(IndicatorAnimation.ACCELERATE)
+                .setItemCornerRadius(30f)
+                .build()
+        )
+
+        indicatorViewDetail.addIndicatorItem(
+            IndicatorItem.Builder(cardRoom)
+                .setItemColorResource(R.color.md_blue_100)
+                .setIndicatorAnimation(IndicatorAnimation.ACCELERATE)
+                .setItemCornerRadius(30f)
+                .build()
+        )
+
+        indicatorViewDetail.addIndicatorItem(
+            IndicatorItem.Builder(cardAddress)
+                .setItemColorResource(R.color.md_yellow_200)
+                .setIndicatorAnimation(IndicatorAnimation.ACCELERATE)
+                .setItemCornerRadius(30f)
+                .build()
+        )
+
+        indicatorViewDetail.addIndicatorItem(
+            IndicatorItem.Builder(cardFacilities)
+                .setItemColorResource(R.color.md_green_100)
+                .setIndicatorAnimation(IndicatorAnimation.ACCELERATE)
+                .setItemCornerRadius(30f)
+                .build()
+        )
+    }
+
 }
