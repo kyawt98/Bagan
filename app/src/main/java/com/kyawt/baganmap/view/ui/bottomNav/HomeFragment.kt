@@ -105,14 +105,4 @@ class HomeFragment : Fragment() {
         slider.addTimerToSlide(5000)
         slider.getIndicator()
     }
-
 }
-
-private fun navOptions() = NavOptions.Builder()
-    .setEnterAnim(R.anim.nav_default_enter_anim)
-    .setExitAnim(R.anim.nav_default_exit_anim)
-    .setPopEnterAnim(R.anim.nav_default_pop_enter_anim)
-    .setPopExitAnim(R.anim.nav_default_pop_exit_anim)
-    .build()
-
-

@@ -1,5 +1,6 @@
 package com.kyawt.baganmap.di.module
 
+val appModules = listOf(networkModule, )
 //import android.app.Application
 //import android.content.Context
 //import dagger.Module

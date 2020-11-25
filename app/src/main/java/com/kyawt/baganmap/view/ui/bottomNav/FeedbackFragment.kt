@@ -43,11 +43,11 @@ class FeedbackFragment : Fragment() {
 
     private fun actionFeedback() {
         btnSend.setOnClickListener {
-            val username = etUsername.text.toString()
-            val email = etEmail.text.toString()
-            val phone = etPhone.text.toString()
-            val address = etAddress.text.toString()
-            val message = etDescription.text.toString()
+            val username = etUsername.text.trim().toString()
+            val email = etEmail.text.trim().toString()
+            val phone = etPhone.text.trim().toString()
+            val address = etAddress.text.trim().toString()
+            val message = etDescription.text.trim().toString()
 
             when {
                 username.isEmpty() -> {
